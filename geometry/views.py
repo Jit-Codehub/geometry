@@ -71,7 +71,7 @@ def taildegtoradcalculator(request, angle=None):
       
       return render(request,"geometry/taildegtoradcalculator.html",context)
   except:
-    return render(request,"geometry/taildegtoradcalculator.html",{'message':"Something went wrong, please try again"})
+    return render(request,"geometry/degree.html",{'message':"Something went wrong, please try again"})
 
 
 
@@ -79,16 +79,20 @@ def taildegtoradcalculator(request, angle=None):
 
 
 def radtodegcalculator(request):
-  if request.method == "GET":
-    return render(request,"geometry/radian.html")
-  else:
-    angle = request.POST['Angle']
-    return redirect(f'/geometry/angle-of-{angle}-radian-in-degree/')
+  try:
+    if request.method == "GET":
+      return render(request,"geometry/radian.html")
+    else:
+      angle = request.POST['Angle']
+      return redirect(f'/geometry/angle-of-{angle}-radian-in-degree/')
+  except:
+    return render(request,"geometry/radian.html",{'message':"Something went wrong, please try again"})
+
 
 
 
 def tailradtodegcalculator(request, angle=None):
-  # try:
+  try:
     print(f'angelllll={angle}, {type(angle)}')
     print("I am tail")
     query=radtodeg.objects.filter(input=angle)
@@ -130,8 +134,8 @@ def tailradtodegcalculator(request, angle=None):
       print("****************I am saved in Database*************")
       
       return render(request,"geometry/tailradian.html",context)
-  # except:
-    # return render(request,"geometry/tailradian.html.html",{'message':"Something went wrong, please try again"})
+  except:
+    return render(request,"geometry/radian.html",{'message':"Something went wrong, please try again"})
 
 
   
