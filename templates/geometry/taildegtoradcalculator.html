@@ -1,0 +1,244 @@
+{% extends 'base.html' %}
+
+{%load static%}
+{%block meta%}
+<!-- HTML Defaults Broweser -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Bootstrap Stylesheet and Jquery, Google APIS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+<!-- Mathjax library script -->
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+<!-- End of Mathjax library script -->
+
+<!-- Online Calculator Guru Site Fevicon -->
+<link rel="shortcut icon" href="https://onlinecalculator.guru/static/images/logo/Online-Calculator-Guru-Fevicon.png"
+    type="icon">
+<!-- Online Calculator Guru Project Style Sheet -->
+{%block css%}
+<link rel="stylesheet" href="https://onlinecalculator.guru/static/style.css">
+{%endblock%}
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    
+<!-- Meta Title, Description and Canonical URL Starts --->
+<title>Converting Angle of {{Angle}} Degree to Radians - LCMGCF.com</title>
+<meta name="description" content="Know what is Angle of {{Angle}} Degree in Radian i.e. {{value}} easily by utilizing our quick online Degree to Radian Calculator for free." />
+<link rel="canonical" href="{{request.build_absolute_uri}}">
+<!-- Meta Title, Description and Canonical URL ENDS --->
+
+<!-- OPEN GRAPH CONFIGURATIONS STARTS -->
+<!--  FACEBOOK CONFIGURATION STARTS  -->
+<meta content="https://www.facebook.com/OnlineCalculator-Guru-131572098650589/" property="og:url" />
+<meta property="og:title" content="Converting Angle of {{Angle}} Degree to Radians - LCMGCF.com" />
+<meta property="og:description" content="Know what is Angle of {{Angle}} Degree in Radian i.e. {{value}} easily by utilizing our quick online Degree to Radian Calculator for free." />
+<meta content="" property="og:site_name" />
+
+    <meta property="og:image:type" content="image/png" />
+<meta property="og:image:height" content="435" />
+<meta property="og:image:width" content="354" />
+<!--  FACEBOOK CONFIGURATION ENDS  -->
+<!-- TWITTER CARD CONFIGURATION STARTS  -->
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="https://twitter.com/onlinecalculator" />
+<meta name="twitter:title" content="Converting Angle of {{Angle}} Degree to Radians - LCMGCF.com" />
+<meta name="twitter:description" content="Know what is Angle of {{Angle}} Degree in Radian i.e. {{value}} easily by utilizing our quick online Degree to Radian Calculator for free." />
+
+<meta property="twitter:image:height" content="435" />
+<meta property="twitter:image:width" content="354" />
+<!-- TWITTER CARD CONFIGURATION ENDS  -->
+<!--  LINKEDIN CONFIGURATION STARTS-->
+
+<meta property='og:title' content="Converting Angle of {{Angle}} Degree to Radians - LCMGCF.com" />
+
+<meta property='og:description' content="Know what is Angle of {{Angle}} Degree in Radian i.e. {{value}} easily by utilizing our quick online Degree to Radian Calculator for free." />
+<meta property='og:url' content="https://www.linkedin.com/in/onlinecalculator/" />
+<!-- end of linkedin CONFIGURATIONS ENDS -->
+<!-- OPEN GRAPH CONFIGURATION ENDS -->
+<!-- FAQ SCHEMA STARTS -->
+
+{%endblock%}
+
+{%block content%}
+
+<style>
+
+   
+    input {
+        text-align: right;
+    }
+
+    #inputform{
+        width: 450px;
+      }
+
+    @media only screen and (min-width: 380px) and (max-width: 530px)  {
+      #inputform{
+        width: 310px;
+      }  
+  }
+
+  @media only screen and (max-width: 379px)  {
+      #inputform{
+        width: 200px;
+      }  
+  }
+</style>
+
+
+<div class="container" style="height: auto !important;">
+    <div class="card c1">
+        <div class="card-header">
+            <h1 class="center">Angle of {{Angle}} Degree in Radian</h1>
+        </div>
+        <div class="card-body">
+            <ul class="messages">
+                {% if message %}
+                <p  id="message_container" class="alert alert-danger text-center" 
+                    style="color:red">{{ message }}</p>
+                {% endif %}   
+
+            </ul>
+            <p>Convert Angle of {{Angle}} Degree in Radians i.e. {{radians}} Radians quickly by taking the help of our <a href="{% url 'degtorad' %}">Degree to Radians Calculator</a> and simplifying your job.</p>
+            <div class="center">
+            <div class="btn-group btn-group-sm">
+             <a href="{% url 'degtorad' %}"><button type="button" class="btn btn-success rounded-bottom  text-break" style="border-radius: 15px;">Deg to Rad</button></a>
+             <a href=""><button type="button" class="btn btn-warning rounded-bottom  text-break" style="border-radius: 15px;">Rad to Deg</button></a>
+             <a href=""><button type="button" class="btn btn-warning  rounded-bottom  text-break" style="border-radius: 15px;">Supplementary</button></a>
+             <a href=""><button type="button" class="btn btn-warning  rounded-bottom  text-break" style="border-radius: 15px;">Complementary</button></a>
+             <a href=""><button type="button" class="btn btn-warning  rounded-bottom  text-break" style="border-radius: 15px;">Reflex</button></a> 
+            </div></div>
+            
+            
+        
+        <div class="container card" id="inputform">
+            <form action="{% url 'degtorad' %}" method="POST" id="my_form" >
+                {% csrf_token %}
+                <div class="col-auto">
+                    <br>
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text"><strong>Angle</strong></div>
+                        </div>
+                        <input type="number" step="any" oninput="validateNumber(this);" id="inlineFormInputGroup" required="" class="form-control" name="Angle" id="Angle" {% if Angle or Angle == 0 %} value="{{Angle}}" {% else %} value="90" {% endif %}>
+                        
+                    </div>
+
+                   <div class=" center col mt-2 ">
+                        <center><button type="submit" class="btn btn-danger" name="f1" value="f1">Calculate</button></center>
+                    </div>
+                    <br>
+
+            </form>
+        </div>
+
+
+        </div>
+    </div>
+</div>
+
+    <div class="card">
+        <div class="card-header">
+            <h2 class="center">Step-by-Step Solution</h2>
+        </div>
+        
+        <div class="card-body"> 
+            {{detailSteps|safe}}
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header">
+            <h2 class="center">How many Radians are there in {{Angle}}°?</h2>
+        </div>
+        
+        <div class="card-body"> 
+            <p>To know What is {{Angle}} degrees in Radians follow the simple technique over here.</p>
+            <ul>
+                <li>Firstly, determine the Angle of degrees from the given data. Here it is {{Angle}}°</li>
+                <li>Then substitute the given angle in degrees in the formula to convert degree to radians i.e. Radians = Degrees*(π/180°) = {{Angle}}*(π/180°)</li>
+                <li>Reducing and simplifying further we get the Radians value i.e. {{value}} in seconds.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header">
+            <h4 class="center">Degrees to Radians Calculator Example</h4>
+        </div>
+        
+       <div class="card-body"> 
+            <div class="row">
+                <div class="col-sm-4">
+                  <ul>
+                    <li><a href="/geometry/angle-of-{{exp.0}}-in-radian/">{{exp.0}}° in Radians</a></li>
+                    <li><a href="/geometry/angle-of-{{exp.1}}-in-radian/">{{exp.1}}° in Radians</a></li>
+                    <li><a href="/geometry/angle-of-{{exp.2}}-in-radian/">{{exp.2}}° in Radians</a></li>
+                    <li><a href="/geometry/angle-of-{{exp.3}}-in-radian/">{{exp.3}}° in Radians</a></li>
+                    <li><a href="/geometry/angle-of-{{exp.4}}-in-radian/">{{exp.4}}° in Radians</a></li>
+                  </ul>
+                </div>
+                <div class="col-sm-4">
+                    <ul>
+                        <li><a href="/geometry/angle-of-{{exp.5}}-in-radian/">{{exp.5}}° in Radians</a></li>
+                        <li><a href="/geometry/angle-of-{{exp.6}}-in-radian/">{{exp.6}}° in Radians</a></li>
+                        <li><a href="/geometry/angle-of-{{exp.7}}-in-radian/">{{exp.7}}° in Radians</a></li>
+                        <li><a href="/geometry/angle-of-{{exp.8}}-in-radian/">{{exp.8}}° in Radians</a></li>
+                        <li><a href="/geometry/angle-of-{{exp.9}}-in-radian/">{{exp.9}}° in Radians</a></li>
+                      </ul>
+                </div>
+
+                <div class="col-sm-4">
+                    <ul>
+                        <li><a href="/geometry/angle-of-{{exp.10}}-in-radian/">{{exp.10}}° in Radians</a></li>
+                        <li><a href="/geometry/angle-of-{{exp.11}}-in-radian/">{{exp.11}}° in Radians</a></li>
+                        <li><a href="/geometry/angle-of-{{exp.12}}-in-radian/">{{exp.12}}° in Radians</a></li>
+                        <li><a href="/geometry/angle-of-{{exp.13}}-in-radian/">{{exp.13}}° in Radians</a></li>
+                        <li><a href="/geometry/angle-of-{{exp.14}}-in-radian/">{{exp.14}}° in Radians</a></li>
+                      </ul>
+                  </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header">
+            <h3 class="center">FAQs on Converting {{Angle}}° to Radians</h3>
+        </div>
+        
+    <div class="card-body"> 
+            <strong>1. How many rads is {{Angle}}°?</strong>
+            <p>{{value}} rads is {{Angle}}°</p><hr>
+            <strong>2. How do you convert  {{Angle}}° to Radians?</strong>
+            <p>To convert  {{Angle}}° to Radians simply multiply {{Angle}}°*(π/180°) and the resultant value after simplification is the Angle Measure in Radians.</p><hr>
+            <strong>3. How do you change {{Angle}}° to Radians using a Calculator?</strong>
+            <p>All you have to do is simply specify the angle measure in degrees i.e. {{Angle}}° in the allotted input fields of the calculator and click on the calculate button that’s it. You will get the radians value in no time.
+            </p>
+        </div>
+    </div>
+    
+
+<script>
+    
+        var validNumber = new RegExp(/^\d*\.?-?\d*$/);
+        var fist_input = document.getElementById("inlineFormInputGroup").value;
+        function validateNumber(elem) {
+            console.log(elem)
+            if (validNumber.test(elem.value)) {
+                fist_input = elem.value;
+            } else {
+                elem.value = fist_input;
+            }
+        }
+
+    </script>
+    
+{% endblock %}
