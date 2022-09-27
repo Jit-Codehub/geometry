@@ -40,12 +40,15 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sitemaps',
+    'django.contrib.sites',
     'articles.apps.ArticlesConfig',
     'percent_off',
     'geometry',
     'mathfilters',
     'django_template_maths',
 ]
+
+SITE_ID=1 #VARIALBE CREATED FOR SITEMAP
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

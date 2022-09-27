@@ -1,10 +1,13 @@
 from django.contrib import admin
 from django.urls import path, include # new
 from articles.sitemaps import *
+from geometry.sitemaps import *
 from django.contrib.sitemaps.views import sitemap,index
 
 
 sitemaps = {
+    'geometry_static':StaticViewSitemap,
+    'degree':DegreeSitemap,
     'static':Static_Sitemap,
     'factor-sitemap': factor_Sitemap,
     'lcm-sitemap': lcm_Sitemap,
@@ -26,7 +29,8 @@ sitemaps = {
     'x-out-of-y-sitemap':xOutOfY_Sitemap,
     'percentage-decrease-sitemap':percentageDecrease_Sitemap,
     'percentage-inc-sitemap':percentageInc_Sitemap,
-    'convert-fraction-to-decimal':frac_deci_db_Sitemap
+    'convert-fraction-to-decimal':frac_deci_db_Sitemap,
+    
 
 }
 urlpatterns = [
@@ -34,6 +38,9 @@ urlpatterns = [
     path('', include('articles.urls')), # new
     path('percentage/', include('percent_off.urls')), # new
     path('geometry/', include('geometry.urls')),
+    #url added by Jitender
+    path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
+    #url ends
     path('sitemap.xml', index, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.index'),
     path('<section>.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
     
