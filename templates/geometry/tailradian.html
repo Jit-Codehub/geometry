@@ -29,16 +29,16 @@
     integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     
 <!-- Meta Title, Description and Canonical URL Starts --->
-<title>Converting Angle of {{Angle}} Degree to Radians - LCMGCF.com</title>
-<meta name="description" content="Know what is Angle of {{Angle}} Degree in Radian i.e. {{value}} easily by utilizing our quick online Degree to Radian Calculator for free." />
+<title>Angle of {{Angle}} Radian in Degree | How to Convert the Angle {{Angle}} Radian in Degrees?</title>
+<meta name="description" content="Convert Angle of {{Angle}} Radian in Degree using our Radian to Degree Calculator and get formulas as well as detailed steps involved." />
 <link rel="canonical" href="{{request.build_absolute_uri}}">
 <!-- Meta Title, Description and Canonical URL ENDS --->
 
 <!-- OPEN GRAPH CONFIGURATIONS STARTS -->
 <!--  FACEBOOK CONFIGURATION STARTS  -->
 <meta content="https://www.facebook.com/OnlineCalculator-Guru-131572098650589/" property="og:url" />
-<meta property="og:title" content="Converting Angle of {{Angle}} Degree to Radians - LCMGCF.com" />
-<meta property="og:description" content="Know what is Angle of {{Angle}} Degree in Radian i.e. {{value}} easily by utilizing our quick online Degree to Radian Calculator for free." />
+<meta property="og:title" content="Angle of {{Angle}} Radian in Degree | How to Convert the Angle {{Angle}} Radian in Degrees?" />
+<meta property="og:description" content="Convert Angle of {{Angle}} Radian in Degree using our Radian to Degree Calculator and get formulas as well as detailed steps involved." />
 <meta content="" property="og:site_name" />
 
     <meta property="og:image:type" content="image/png" />
@@ -48,17 +48,17 @@
 <!-- TWITTER CARD CONFIGURATION STARTS  -->
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:site" content="https://twitter.com/onlinecalculator" />
-<meta name="twitter:title" content="Converting Angle of {{Angle}} Degree to Radians - LCMGCF.com" />
-<meta name="twitter:description" content="Know what is Angle of {{Angle}} Degree in Radian i.e. {{value}} easily by utilizing our quick online Degree to Radian Calculator for free." />
+<meta name="twitter:title" content="Angle of {{Angle}} Radian in Degree | How to Convert the Angle {{Angle}} Radian in Degrees?" />
+<meta name="twitter:description" content="Convert Angle of {{Angle}} Radian in Degree using our Radian to Degree Calculator and get formulas as well as detailed steps involved." />
 
 <meta property="twitter:image:height" content="435" />
 <meta property="twitter:image:width" content="354" />
 <!-- TWITTER CARD CONFIGURATION ENDS  -->
 <!--  LINKEDIN CONFIGURATION STARTS-->
 
-<meta property='og:title' content="Converting Angle of {{Angle}} Degree to Radians - LCMGCF.com" />
+<meta property='og:title' content="Angle of {{Angle}} Radian in Degree | How to Convert the Angle {{Angle}} Radian in Degrees?" />
 
-<meta property='og:description' content="Know what is Angle of {{Angle}} Degree in Radian i.e. {{value}} easily by utilizing our quick online Degree to Radian Calculator for free." />
+<meta property='og:description' content="Convert Angle of {{Angle}} Radian in Degree using our Radian to Degree Calculator and get formulas as well as detailed steps involved." />
 <meta property='og:url' content="https://www.linkedin.com/in/onlinecalculator/" />
 <!-- end of linkedin CONFIGURATIONS ENDS -->
 <!-- OPEN GRAPH CONFIGURATION ENDS -->
@@ -96,7 +96,7 @@
 <div class="container" style="height: auto !important;">
     <div class="card c1">
         <div class="card-header">
-            <h1 class="center">Angle of {{Angle}} Degree in Radian</h1>
+            <h1 class="center">Angle of {{Angle}} Radian in Degree</h1>
         </div>
         <div class="card-body">
             <ul class="messages">
@@ -106,11 +106,11 @@
                 {% endif %}   
 
             </ul>
-            <p>Convert Angle of {{Angle}} Degree in Radians i.e. {{radians}} Radians quickly by taking the help of our <a href="{% url 'degtorad' %}">Degree to Radians Calculator</a> and simplifying your job.</p>
+            <p>If you want to convert the Angle of {{Angle}} Radian in Degree i.e. {{value}}° try using our online <a href="{% url 'radtodeg' %}">Radian to Degree Calculator</a> for free and make all your calculations fast and simple.</p>
             <div class="center">
             <div class="btn-group btn-group-sm">
-             <a href="{% url 'degtorad' %}"><button type="button" class="btn btn-success rounded-bottom  text-break" style="border-radius: 15px;">Deg to Rad</button></a>
-             <a href="{% url 'radtodeg' %}"><button type="button" class="btn btn-warning rounded-bottom  text-break" style="border-radius: 15px;">Rad to Deg</button></a>
+             <a href="{% url 'degtorad' %}"><button type="button" class="btn btn-warning rounded-bottom  text-break" style="border-radius: 15px;">Deg to Rad</button></a>
+             <a href="{% url 'radtodeg' %}"><button type="button" class="btn btn-success rounded-bottom  text-break" style="border-radius: 15px;">Rad to Deg</button></a>
              <a href=""><button type="button" class="btn btn-warning  rounded-bottom  text-break" style="border-radius: 15px;">Supplementary</button></a>
              <a href=""><button type="button" class="btn btn-warning  rounded-bottom  text-break" style="border-radius: 15px;">Complementary</button></a>
              <a href=""><button type="button" class="btn btn-warning  rounded-bottom  text-break" style="border-radius: 15px;">Reflex</button></a> 
@@ -119,7 +119,7 @@
             
         
         <div class="container card" id="inputform">
-            <form action="{% url 'degtorad' %}" method="POST" id="my_form" >
+            <form action="{% url 'radtodeg' %}" method="POST" id="my_form" >
                 {% csrf_token %}
                 <div class="col-auto">
                     <br>
@@ -156,15 +156,15 @@
 
     <div class="card">
         <div class="card-header">
-            <h2 class="center">How many Radians are there in {{Angle}}°?</h2>
+            <h2 class="center">How do we Convert {{Angle}} Radians to Degrees?</h2>
         </div>
         
         <div class="card-body"> 
-            <p>To know What is {{Angle}} degrees in Radians follow the simple technique over here.</p>
+            <p>Check out the step-by-step process outlined below to change between {{Angle}} Radians to Degrees easily. They are along the lines</p>
             <ul>
-                <li>Firstly, determine the Angle of degrees from the given data. Here it is {{Angle}}°</li>
-                <li>Then substitute the given angle in degrees in the formula to convert degree to radians i.e. Radians = Degrees*(π/180°) = {{Angle}}*(π/180°)</li>
-                <li>Reducing and simplifying further we get the Radians value i.e. {{value}} in seconds.</li>
+                <li>Firstly determine the given radians value. Here it is {{Angle}} radians</li>
+                <li>Then employ the value of {{Angle}} radians in the formula to convert radians to degrees i.e. Degrees = Radians*(180°/π) = {{Angle}}*(180°/π) </li>
+                <li>Do further mathematical calculations and the result obtained after simplification {{value}}° is the degree value. </li>
             </ul>
         </div>
     </div>
@@ -178,30 +178,30 @@
             <div class="row">
                 <div class="col-sm-4">
                   <ul>
-                    <li><a href="/geometry/angle-of-{{exp.0}}-in-radian/">{{exp.0}}° in Radians</a></li>
-                    <li><a href="/geometry/angle-of-{{exp.1}}-in-radian/">{{exp.1}}° in Radians</a></li>
-                    <li><a href="/geometry/angle-of-{{exp.2}}-in-radian/">{{exp.2}}° in Radians</a></li>
-                    <li><a href="/geometry/angle-of-{{exp.3}}-in-radian/">{{exp.3}}° in Radians</a></li>
-                    <li><a href="/geometry/angle-of-{{exp.4}}-in-radian/">{{exp.4}}° in Radians</a></li>
+                    <li><a href="/geometry/angle-of-{{exp.0}}-radian-in-degree/">{{exp.0}}<sup>rad</sup>  in degrees</a></li>
+                    <li><a href="/geometry/angle-of-{{exp.1}}-radian-in-degree/">{{exp.1}}<sup>rad</sup>  in degrees</a></li>
+                    <li><a href="/geometry/angle-of-{{exp.2}}-radian-in-degree/">{{exp.2}}<sup>rad</sup>  in degrees</a></li>
+                    <li><a href="/geometry/angle-of-{{exp.3}}-radian-in-degree/">{{exp.3}}<sup>rad</sup>  in degrees</a></li>
+                    <li><a href="/geometry/angle-of-{{exp.4}}-radian-in-degree/">{{exp.4}}<sup>rad</sup>  in degrees</a></li>
                   </ul>
                 </div>
                 <div class="col-sm-4">
                     <ul>
-                        <li><a href="/geometry/angle-of-{{exp.5}}-in-radian/">{{exp.5}}° in Radians</a></li>
-                        <li><a href="/geometry/angle-of-{{exp.6}}-in-radian/">{{exp.6}}° in Radians</a></li>
-                        <li><a href="/geometry/angle-of-{{exp.7}}-in-radian/">{{exp.7}}° in Radians</a></li>
-                        <li><a href="/geometry/angle-of-{{exp.8}}-in-radian/">{{exp.8}}° in Radians</a></li>
-                        <li><a href="/geometry/angle-of-{{exp.9}}-in-radian/">{{exp.9}}° in Radians</a></li>
+                        <li><a href="/geometry/angle-of-{{exp.5}}-radian-in-degree/">{{exp.5}}<sup>rad</sup>  in degrees</a></li>
+                        <li><a href="/geometry/angle-of-{{exp.6}}-radian-in-degree/">{{exp.6}}<sup>rad</sup>  in degrees</a></li>
+                        <li><a href="/geometry/angle-of-{{exp.7}}-radian-in-degree/">{{exp.7}}<sup>rad</sup>  in degrees</a></li>
+                        <li><a href="/geometry/angle-of-{{exp.8}}-radian-in-degree/">{{exp.8}}<sup>rad</sup>  in degrees</a></li>
+                        <li><a href="/geometry/angle-of-{{exp.9}}-radian-in-degree/">{{exp.9}}<sup>rad</sup>  in degrees</a></li>
                       </ul>
                 </div>
 
                 <div class="col-sm-4">
                     <ul>
-                        <li><a href="/geometry/angle-of-{{exp.10}}-in-radian/">{{exp.10}}° in Radians</a></li>
-                        <li><a href="/geometry/angle-of-{{exp.11}}-in-radian/">{{exp.11}}° in Radians</a></li>
-                        <li><a href="/geometry/angle-of-{{exp.12}}-in-radian/">{{exp.12}}° in Radians</a></li>
-                        <li><a href="/geometry/angle-of-{{exp.13}}-in-radian/">{{exp.13}}° in Radians</a></li>
-                        <li><a href="/geometry/angle-of-{{exp.14}}-in-radian/">{{exp.14}}° in Radians</a></li>
+                        <li><a href="/geometry/angle-of-{{exp.10}}-radian-in-degree/">{{exp.10}}<sup>rad</sup>  in degrees</a></li>
+                        <li><a href="/geometry/angle-of-{{exp.11}}-radian-in-degree/">{{exp.11}}<sup>rad</sup>  in degrees</a></li>
+                        <li><a href="/geometry/angle-of-{{exp.12}}-radian-in-degree/">{{exp.12}}<sup>rad</sup>  in degrees</a></li>
+                        <li><a href="/geometry/angle-of-{{exp.13}}-radian-in-degree/">{{exp.13}}<sup>rad</sup>  in degrees</a></li>
+                        <li><a href="/geometry/angle-of-{{exp.14}}-radian-in-degree/">{{exp.14}}<sup>rad</sup>  in degrees</a></li>
                       </ul>
                   </div>
 
@@ -211,17 +211,17 @@
 
     <div class="card">
         <div class="card-header">
-            <h3 class="center">FAQs on Converting {{Angle}}° to Radians</h3>
+            <h3 class="center">FAQs on {{Angle}} Radians to Degrees Conversion</h3>
         </div>
         
     <div class="card-body"> 
-            <strong>1. How many rads is {{Angle}}°?</strong>
-            <p>{{value}} rads is {{Angle}}°</p><hr>
-            <strong>2. How do you convert  {{Angle}}° to Radians?</strong>
-            <p>To convert  {{Angle}}° to Radians simply multiply {{Angle}}°*(π/180°) and the resultant value after simplification is the Angle Measure in Radians.</p><hr>
-            <strong>3. How do you change {{Angle}}° to Radians using a Calculator?</strong>
-            <p>All you have to do is simply specify the angle measure in degrees i.e. {{Angle}}° in the allotted input fields of the calculator and click on the calculate button that’s it. You will get the radians value in no time.
-            </p>
+            <strong>1. How do we convert {{Angle}} Radians to Degrees?</strong>
+            <p>We can convert {{Angle}} Radians to Degrees by multiplying the radians value i.e. {{Angle}} Radians with 180°/π.
+            </p><hr>
+            <strong>2. What is the formula to convert {{Angle}} radians to degrees?</strong>
+            <p>The formula to convert {{Angle}} radians to degrees is Radians = Degrees*(180°/π)</p><hr>
+            <strong>3. Where do I get the best tool to convert {{Angle}} radian measure into degrees?</strong>
+            <p>You can get the best tool to convert {{Angle}} radian measure into degrees on <a href="https://lcmgcf.com/">LCMGCF.Com</a> a trusted portal.</p>
         </div>
     </div>
     

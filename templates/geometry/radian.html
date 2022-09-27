@@ -1,0 +1,347 @@
+{% extends 'base.html' %}
+
+{%load static%}
+{%block meta%}
+<!-- HTML Defaults Broweser -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Bootstrap Stylesheet and Jquery, Google APIS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+<!-- Mathjax library script -->
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+<!-- End of Mathjax library script -->
+
+<!-- Online Calculator Guru Site Fevicon -->
+<link rel="shortcut icon" href="https://onlinecalculator.guru/static/images/logo/Online-Calculator-Guru-Fevicon.png"
+    type="icon">
+<!-- Online Calculator Guru Project Style Sheet -->
+{%block css%}
+<link rel="stylesheet" href="https://onlinecalculator.guru/static/style.css">
+{%endblock%}
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    
+<!-- Meta Title, Description and Canonical URL Starts --->
+<title>Radians to Degrees Calculator with Steps | Free rad to ° Conversion Tool  </title>
+<meta name="description" content="Utilize Radians to Degrees Calculator to complete your conversion calculations in no time. Also, see the radian and degree definitions, conversion formula & steps to convert rad to °." />
+<link rel="canonical" href="{{request.build_absolute_uri}}">
+<!-- Meta Title, Description and Canonical URL ENDS --->
+
+<!-- OPEN GRAPH CONFIGURATIONS STARTS -->
+<!--  FACEBOOK CONFIGURATION STARTS  -->
+<meta content="https://www.facebook.com/OnlineCalculator-Guru-131572098650589/" property="og:url" />
+<meta property="og:title" content="Radians to Degrees Calculator with Steps | Free rad to ° Conversion Tool  " />
+<meta property="og:description" content="Utilize Radians to Degrees Calculator to complete your conversion calculations in no time. Also, see the radian and degree definitions, conversion formula & steps to convert rad to °." />
+<meta content="" property="og:site_name" />
+
+    <meta property="og:image:type" content="image/png" />
+<meta property="og:image:height" content="435" />
+<meta property="og:image:width" content="354" />
+<!--  FACEBOOK CONFIGURATION ENDS  -->
+<!-- TWITTER CARD CONFIGURATION STARTS  -->
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="https://twitter.com/onlinecalculator" />
+<meta name="twitter:title" content="Radians to Degrees Calculator with Steps | Free rad to ° Conversion Tool  " />
+<meta name="twitter:description" content="Utilize Radians to Degrees Calculator to complete your conversion calculations in no time. Also, see the radian and degree definitions, conversion formula & steps to convert rad to °." />
+
+<meta property="twitter:image:height" content="435" />
+<meta property="twitter:image:width" content="354" />
+<!-- TWITTER CARD CONFIGURATION ENDS  -->
+<!--  LINKEDIN CONFIGURATION STARTS-->
+
+<meta property='og:title' content="Radians to Degrees Calculator with Steps | Free rad to ° Conversion Tool " />
+
+<meta property='og:description' content="Utilize Radians to Degrees Calculator to complete your conversion calculations in no time. Also, see the radian and degree definitions, conversion formula & steps to convert rad to °." />
+<meta property='og:url' content="https://www.linkedin.com/in/onlinecalculator/" />
+<!-- end of linkedin CONFIGURATIONS ENDS -->
+<!-- OPEN GRAPH CONFIGURATION ENDS -->
+<!-- FAQ SCHEMA STARTS -->
+
+{%endblock%}
+
+{%block content%}
+
+<style>
+
+   
+    input {
+        text-align: right;
+    }
+
+    #inputform{
+        width: 450px;
+      }
+
+    @media only screen and (min-width: 380px) and (max-width: 530px)  {
+      #inputform{
+        width: 310px;
+      }  
+  }
+
+  @media only screen and (max-width: 379px)  {
+      #inputform{
+        width: 200px;
+      }  
+  }
+</style>
+
+
+<div class="container" style="height: auto !important;">
+    <div class="card c1">
+        <div class="card-header">
+            <h1 class="center">Radians to Degrees Calculator</h1>
+        </div>
+        <div class="card-body">
+            <ul class="messages">
+                {% if message %}
+                <p  id="message_container" class="alert alert-danger text-center" 
+                    style="color:red">{{ message }}</p>
+                {% endif %}   
+
+            </ul>
+
+            <p>Radians to Degrees Calculator make your calculations easier and quicker. It just takes radians value as an input and converts it to degrees. Click on the calculate button and get the result in a matter of seconds with a neat explanation.</p>
+            
+            <div class="center">
+            <div class="btn-group btn-group-sm">
+             <a href="{% url 'degtorad' %}"><button type="button" class="btn btn-warning rounded-bottom  text-break" style="border-radius: 15px;">Deg to Rad</button></a>
+             <a href="{% url 'radtodeg' %}"><button type="button" class="btn btn-success rounded-bottom  text-break" style="border-radius: 15px;">Rad to Deg</button></a>
+             <a href=""><button type="button" class="btn btn-warning  rounded-bottom  text-break" style="border-radius: 15px;">Supplementary</button></a>
+             <a href=""><button type="button" class="btn btn-warning  rounded-bottom  text-break" style="border-radius: 15px;">Complementary</button></a>
+             <a href=""><button type="button" class="btn btn-warning  rounded-bottom  text-break" style="border-radius: 15px;">Reflex</button></a> 
+            </div></div>
+            
+            
+        
+        <div class="container card" id="inputform">
+            <form action="{% url 'radtodeg' %}" method="POST" id="my_form" >
+                {% csrf_token %}
+                <div class="col-auto">
+                    <br>
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text"><strong>Angle</strong></div>
+                        </div>
+                        <input type="number" step="any" oninput="validateNumber(this);" id="inlineFormInputGroup" required="" class="form-control" name="Angle" id="Angle" {% if Angle or Angle == 0 %} value="{{Angle}}" {% else %} value="7" {% endif %}>
+                        
+                    </div>
+
+                   <div class=" center col mt-2 ">
+                        <center><button type="submit" class="btn btn-danger" name="f1" value="f1">Calculate</button></center>
+                    </div>
+                    <br>
+
+            </form>
+        </div>
+        </div>
+
+        <p><strong>Examples:</strong></p>
+
+        <div class="row">
+            <div class="col-sm-6">
+              <ul>
+                <li><a href="/geometry/angle-of-1-radian-in-degree/">1<sup>rad</sup>   in degrees</a></li>
+                <li><a href="/geometry/angle-of-5-in-radian/">5<sup>rad</sup>  in degrees</a></li>
+                <li><a href="/geometry/angle-of-8-in-radian/">8<sup>rad</sup>  in degrees</a></li>
+                <li><a href="/geometry/angle-of-9-in-radian/">9<sup>rad</sup>  in degrees</a></li>
+                <li><a href="/geometry/angle-of-2-in-radian/">2<sup>rad</sup>  in degrees</a></li>
+              </ul>
+            </div>
+            <div class="col-sm-6">
+              <ul>
+                <li><a href="/geometry/angle-of-2.4-in-radian/">2.4<sup>rad</sup>  in degrees</a></li>
+                <li><a href="/geometry/angle-of-1.9-in-radian/">1.9<sup>rad</sup>  in degrees</a></li>
+                <li><a href="/geometry/angle-of-6-in-radian/">6<sup>rad</sup>  in degrees</a></li>
+                <li><a href="/geometry/angle-of-7-in-radian/">7<sup>rad</sup>  in degrees</a></li>
+                <li><a href="/geometry/angle-of-3.4-in-radian/">3.4<sup>rad</sup>  in degrees</a></li>
+              </ul>
+            </div>
+        </div>
+
+        <p> <strong>Radians to Degrees Conversion Calculator:</strong>A calculator can make your calculations much simpler right? Sometimes conversion of radians and degrees can be tricky and so complex to work on. Hence, to avoid such strugglings moments we have come up with an effective calculator ie., radians to degrees calculator.</p>
+
+        <p>Make use of this free and handy online radians to degree tool and find the results in less time. Along with that, you may also study definitions of radian and degree, conversion formula, how conversion between radians and degrees works, and illustrated examples on radians degree conversion calculator.</p>
+    </div>
+</div>
+
+
+<div class="card">
+        <div class="card-header">
+            <h2>Radian & Degree Definitions</h2>
+        </div>
+        
+        
+        <div class="card-body"> 
+            <p>The definition of radian and degree are as follows:</p>
+
+            <p> <strong> Radian:</strong>It is the SI unit of measuring angles and is represented as rad. We know that one complete rotation around a circle is 2π radians. Also, it is equal to 360° degrees. 
+            </p>
+
+            <p> <strong> Degree:</strong>Degree is defined as a part of a plane angle in which one full rotation is 360 degrees. It is also called a degree of arc, arc degree, or arcdegree and indicated by ° or deg. The unit system of degree is not the SI unit measurement but it is an accepted unit to measure.</p>
+
+            <h3>Radians To Degrees Conversion Formula</h3>
+            <p>The formula to convert radians to degrees is equivalent to the angle α in radians times 180 degrees divided by the pi constant. It is expressed as</p>
+
+            <p><strong>α(degrees) = α(radians) × 180° / π</strong></p>
+            <p><strong>or</strong></p>
+            <p><strong>degrees = radians × 180° / π</strong></p>
+
+            <h3>How to Convert Radians to Degrees Manually?</h3>
+            <p>The step-by-step process of converting radians to degrees is discussed here with a solved example. So, check out the following steps and learn how you can easily convert the radians to degrees manually:</p>
+            <ul>
+                <li>Initially, you need to note the radian value from the given problem.</li>
+                <li>Now, apply the angle of radian to the degree conversion formula ie., degrees = radians × 180° / π</li>
+                <li>Substitute the radian value in the formula and simplify the expression by performing simple mathematical operations.</li>
+                <li>At last, you will get the desired result in the degree measure.</li>
+            </ul>
+
+            <h3>Solved Example on Calculation of Radian Measure to Degree Measure Conversion</h3>
+            <strong>Example:</strong>
+            <p>Convert the angle π/20 rad into degrees using the radians to degrees formula.</p>
+            <strong>Solution:</strong>
+            <p>Given radian = π/20</p>
+            <p>We know that Pi radius = 180 degrees</p>
+            <p>Thus, 1 rad = 57.295779513°</p>
+            <p>Let's use the radian to degree formula for conversion calculation:</p>
+            
+            <strong>Ie., Angle in Degrees = Angle in Radians x 180° / π</strong><br>
+
+            <p>Put the radian value in the above formula and simplify</p>
+            
+            <p>Degrees = π/20 x 180° / π</p>
+            <p>Degrees = 180° / 20</p>
+            <p>Degrees = 9°</p>
+            <p>Hence, the radians π/20 is equals to <strong>9° degrees.</strong></p>
+            
+            <p>Have you stopped in the middle of degrees to radians conversion calculation? Need any assistance then make sure to check out our degrees to radians calculator from <a href="https://lcmgcf.com/">LCMGCF.Com</a> and solve all your complex math problems at a faster pace.</p>
+
+
+
+            <div class="row p-14">
+                <div class="col-sm-4">
+              <table class="table table-sm table-bordered table-responsive">
+                <thead>
+                  <tr>
+                    <th>Radians (rad)</th>
+                    <th>Radians (rad)</th>
+                    <th>Degrees (°)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>0 rad</td>
+                    <td>0 rad</td>
+                    <td>0°</td>
+                  </tr>
+                  <tr>
+                    <td>π/6 rad
+                    </td>
+                    <td>0.5235987756 rad
+                    </td>
+                    <td>30°</td>
+                  </tr>
+                  <tr>
+                    <td>π/4 rad</td>
+                    <td>0.7853981634 rad
+                    </td>
+                    <td>45°</td>
+                  </tr>
+                  <tr>
+                    <td>π/3 rad</td>
+                    <td>1.0471975512 rad</td>
+                    <td>60°</td>
+                  </tr>
+                  <tr>
+                    <td>π/2 rad</td>
+                    <td>1.5707963268 rad
+                    </td>
+                    <td>90°
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>2π/3 rad
+                    </td>
+                    <td>2.0943951024 rad</td>
+                    <td>120°
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>3π/4 rad</td>
+                    <td>2.3561944902 rad</td>
+                    <td>135°</td>
+                  </tr>
+                  <tr>
+                    <td>5π/6 rad</td>
+                    <td>2.6179938780 rad</td>
+                    <td>150°</td>
+                  </tr>
+                  <tr>
+                    <td>π rad</td>
+                    <td>3.1415926536 rad</td>
+                    <td>180°</td>
+                  </tr>
+                  <tr>
+                    <td>3π/2 rad</td>
+                    <td>4.7123889804 rad</td>
+                    <td>270°</td>
+                  </tr>
+                  <tr>
+                    <td>2π rad</td>
+                    <td>6.2831853072 rad</td>
+                    <td>360°</td>
+                  </tr>
+                
+                </tbody>
+              </table></div></div>
+            
+        </div>
+
+       
+
+    </div>
+
+    <div class="card">
+        <div class="card-header">
+            <h3>FAQs on Radians to Degrees Conversion (rad to °) Online Calculator with Steps</h3>
+        </div>
+        <div class="card-body">
+            <strong>1. What is Radians to Degrees Conversion?</strong>
+            <p>Both radians and degrees are used for constructing or measuring an angle. So, the conversion of unit angles plays an important role in the concept of trigonometry. By using the formulas you can easily convert the measurement of angles ie., radians to degrees or degrees to radians.</p><hr>
+            <strong>2. What is the formula to convert radians to degrees?</strong>
+            <p>The conversion of radians to degrees can be solved using the simple conversion formula ie., Angle in Radians × 180°/π = Angle in Degrees. </p><hr>
+            <strong>3. What is π/3 rad in degrees?</strong>
+            <p>π/3 rad in degrees is 60°.</p>
+        </div>
+
+    </div>
+    
+
+
+
+<script>
+    
+        var validNumber = new RegExp(/^\d*\.?-?\d*$/);
+        var fist_input = document.getElementById("inlineFormInputGroup").value;
+        function validateNumber(elem) {
+            console.log(elem)
+            if (validNumber.test(elem.value)) {
+                fist_input = elem.value;
+            } else {
+                elem.value = fist_input;
+            }
+        }
+
+    </script>
+    
+   
+    
+    
+    
+    {% endblock %}
