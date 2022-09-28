@@ -1,0 +1,369 @@
+{% extends 'base.html' %}
+
+{%load static%}
+{%block meta%}
+<!-- HTML Defaults Broweser -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Bootstrap Stylesheet and Jquery, Google APIS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+<!-- Mathjax library script -->
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+<!-- End of Mathjax library script -->
+
+<!-- Online Calculator Guru Site Fevicon -->
+<link rel="shortcut icon" href="https://onlinecalculator.guru/static/images/logo/Online-Calculator-Guru-Fevicon.png"
+    type="icon">
+<!-- Online Calculator Guru Project Style Sheet -->
+{%block css%}
+<link rel="stylesheet" href="https://onlinecalculator.guru/static/style.css">
+{%endblock%}
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    
+<!-- Meta Title, Description and Canonical URL Starts --->
+<title>Finding Supplementary Angle of {{Angle}} Radian i.e. {{value}}</title>
+<meta name="description" content="Get detailed steps on how to calculate the supplementary angle of {{Angle}} Radians i.e. {{value}} from this page." />
+<link rel="canonical" href="{{request.build_absolute_uri}}">
+<!-- Meta Title, Description and Canonical URL ENDS --->
+
+<!-- OPEN GRAPH CONFIGURATIONS STARTS -->
+<!--  FACEBOOK CONFIGURATION STARTS  -->
+<meta content="https://www.facebook.com/OnlineCalculator-Guru-131572098650589/" property="og:url" />
+<meta property="og:title" content="Finding Supplementary Angle of {{Angle}} Radian i.e. {{value}}" />
+<meta property="og:description" content="Get detailed steps on how to calculate the supplementary angle of {{Angle}} Radians i.e. {{value}} from this page." />
+<meta content="" property="og:site_name" />
+
+    <meta property="og:image:type" content="image/png" />
+<meta property="og:image:height" content="435" />
+<meta property="og:image:width" content="354" />
+<!--  FACEBOOK CONFIGURATION ENDS  -->
+<!-- TWITTER CARD CONFIGURATION STARTS  -->
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="https://twitter.com/onlinecalculator" />
+<meta name="twitter:title" content="Finding Supplementary Angle of {{Angle}} Radian i.e. {{value}}" />
+<meta name="twitter:description" content="Get detailed steps on how to calculate the supplementary angle of {{Angle}} Radians i.e. {{value}} from this page." />
+
+<meta property="twitter:image:height" content="435" />
+<meta property="twitter:image:width" content="354" />
+<!-- TWITTER CARD CONFIGURATION ENDS  -->
+<!--  LINKEDIN CONFIGURATION STARTS-->
+
+<meta property='og:title' content="Finding Supplementary Angle of {{Angle}} Radian i.e. {{value}}" />
+
+<meta property='og:description' content="Get detailed steps on how to calculate the supplementary angle of {{Angle}} Radians i.e. {{value}} from this page." />
+<meta property='og:url' content="https://www.linkedin.com/in/onlinecalculator/" />
+<!-- end of linkedin CONFIGURATIONS ENDS -->
+<!-- OPEN GRAPH CONFIGURATION ENDS -->
+<!-- FAQ SCHEMA STARTS -->
+
+{%endblock%}
+
+{%block content%}
+
+<style>
+
+   
+    input {
+        text-align: right;
+    }
+
+    #inputform{
+        width: 450px;
+      }
+
+    @media only screen and (min-width: 380px) and (max-width: 530px)  {
+      #inputform{
+        width: 310px;
+      }  
+  }
+
+  @media only screen and (max-width: 379px)  {
+      #inputform{
+        width: 200px;
+      }  
+  }
+</style>
+
+
+<div class="container" style="height: auto !important;">
+    <div class="card c1">
+        <div class="card-header">
+            <h1 class="center">Supplementary Angle of {{Angle}} Radian</h1>
+        </div>
+        <div class="card-body">
+            <ul class="messages">
+                {% if message %}
+                <p  id="message_container" class="alert alert-danger text-center" 
+                    style="color:red">{{ message }}</p>
+                {% endif %}   
+
+            </ul>
+            <p>Get to know the supplementary angle of {{Angle}} Radians i.e. {{value}} Radians easily taking the help of the quick <a href="{% url 'supplementary' %}">Supplement Angle Calculator.</a></p>
+            <div class="center">
+            <div class="btn-group btn-group-sm">
+             <a href="{% url 'degtorad' %}"><button type="button" class="btn btn-warning rounded-bottom  text-break" style="border-radius: 15px;">Deg to Rad</button></a>
+             <a href="{% url 'radtodeg' %}"><button type="button" class="btn btn-warning rounded-bottom  text-break" style="border-radius: 15px;">Rad to Deg</button></a>
+             <a href="{% url 'supplementary' %}"><button type="button" class="btn btn-success  rounded-bottom  text-break" style="border-radius: 15px;">Supplementary</button></a>
+             <a href=""><button type="button" class="btn btn-warning  rounded-bottom  text-break" style="border-radius: 15px;">Complementary</button></a>
+             <a href=""><button type="button" class="btn btn-warning  rounded-bottom  text-break" style="border-radius: 15px;">Reflex</button></a> 
+            </div></div>
+            
+            
+        
+        <div class="container card" id="inputform">
+            <form action="{% url 'supplementary' %}" method="POST" id="my_form" >
+                {% csrf_token %}
+                <div class="col-auto">
+                    <br>
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text"><strong>Angle</strong></div>
+                        </div>
+                        <input type="number" min="0" max="180" step="any" oninput="validateNumber(this);" id="inlineFormInputGroup" required="" class="form-control" name="Angle" id="Angle" {% if Angle or Angle == 0 %} value="{{Angle}}" {% else %} value="90" {% endif %}>
+
+                        <select class="select form-control" id="inlineFormInputGroup" name="AG_TY" id="GT_op">
+
+                            {% if AG_TY == 'radian' %}
+                            <option value="radian" selected="selected">radian</option>
+                            {% else %}
+                            <option value="radian">radian</option>
+                            {% endif %}
+
+                            {% if AG_TY == 'degree' %}
+                            <option value="degree" selected="selected">degree</option>
+                            {% else %}
+                            <option value="degree">degree</option>
+                            {% endif %}
+
+                            
+    
+                        </select>
+                        
+                    </div>
+
+                   <div class=" center col mt-2 ">
+                        <center><button type="submit" class="btn btn-danger" name="f1" value="f1">Calculate</button></center>
+                    </div>
+                    <br>
+
+            </form>
+        </div>
+
+
+        </div>
+    </div>
+</div>
+
+    <div class="card">
+        <div class="card-header">
+            <h2 class="center">Step-by-Step Solution</h2>
+        </div>
+        
+        <div class="card-body"> 
+            {{detailSteps|safe}}
+
+            
+
+               <div class="center">
+                   <canvas id="AngImage" width="400" height="400">
+                       You browser does not support "Canvas".
+                   </canvas>
+               </div>
+
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header">
+            <h2 class="center">How to find Supplementary Angle for {{Angle}} Radians?</h2>
+        </div>
+        
+        <div class="card-body"> 
+            <p>Follow the step-by-step process to determine the Supplementary Angle of {{Angle}} Radians. They are as under</p>
+            <ul>
+                <li>Firstly, identify the given Angle Measure in Radians i.e. {{Angle}}</li>
+                <li>Later, based on the funda supplementary angle sum up to π subtract the given angle measure from π i.e. π - {{Angle}}
+                </li>
+                <li>Therefore, {{value}} is the resultant supplementary angle of {{Angle}} Radians.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header">
+            <h4 class="center">Supplementary Angle in Degree Calculator Example</h4>
+        </div>
+        
+       <div class="card-body"> 
+            <div class="row">
+                <div class="col-sm-5">
+                  <ul>
+                    <li><a href="/geometry/supplementary-angle-of-{{exp.0}}-in-radian/">Supplementary angle of {{exp.0}}<sup>rad</sup></a></li>
+                    <li><a href="/geometry/supplementary-angle-of-{{exp.1}}-in-radian/">Supplementary angle of {{exp.1}}<sup>rad</sup></a></li>
+                    <li><a href="/geometry/supplementary-angle-of-{{exp.2}}-in-radian/">Supplementary angle of {{exp.2}}<sup>rad</sup></a></li>
+                    <li><a href="/geometry/supplementary-angle-of-{{exp.3}}-in-radian/">Supplementary angle of {{exp.3}}<sup>rad</sup></a></li>
+                    <li><a href="/geometry/supplementary-angle-of-{{exp.4}}-in-radian/">Supplementary angle of {{exp.4}}<sup>rad</sup></a></li>
+                  </ul>
+                </div>
+                <div class="col-sm-5">
+                    <ul>
+                        <li><a href="/geometry/supplementary-angle-of-{{exp.5}}-in-radian/">Supplementary angle of {{exp.5}}<sup>rad</sup></a></li>
+                        <li><a href="/geometry/supplementary-angle-of-{{exp.6}}-in-radian/">Supplementary angle of {{exp.6}}<sup>rad</sup></a></li>
+                        <li><a href="/geometry/supplementary-angle-of-{{exp.7}}-in-radian/">Supplementary angle of {{exp.7}}<sup>rad</sup></a></li>
+                        <li><a href="/geometry/supplementary-angle-of-{{exp.8}}-in-radian/">Supplementary angle of {{exp.8}}<sup>rad</sup></a></li>
+                        <li><a href="/geometry/supplementary-angle-of-{{exp.9}}-in-radian/">Supplementary angle of {{exp.9}}<sup>rad</sup></a></li>
+                      </ul>
+                </div>
+            
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header">
+            <h3 class="center">FAQs on Finding the Supplement of an Angle in {{Angle}} Radians</h3>
+        </div>
+        
+    <div class="card-body"> 
+            <strong>1. What is the Supplementary Angle of {{Angle}} Radians?</strong>
+            <p>The supplementary Angle of {{Angle}} Radians is <span id="result">{{value}}</span> Radians.</p><hr>
+            <strong>2. How do you find the Supplementary Angle of {{Angle}} Radians?</strong>
+            <p>Supplementary Angle of {{Angle}} Radians can be found by subtracting from π i.e. π - {{Angle}} Radians.</p><hr>
+            <strong>3. How to find Supplementary Angle of {{Angle}} Radians using a Calculator?</strong>
+            <p>Supplementary Angle of {{Angle}} Radians can be found by entering the input angle measure and clicking on the calculate button using a Calculator.</p>
+        </div>
+    </div>
+
+
+    <script>
+        // storing input value
+        var ang=document.getElementsByTagName("input")[1].value;
+        ang=ang.toString();
+        
+        // storing type
+        var typee="radian"; 
+        
+        // storing result
+        var suplement=document.getElementById("result").innerHTML;
+        suplement=suplement.toString();
+    
+        
+        
+        if (typee == "degree"){
+            var angUnit = "degree";
+        }  
+        else{
+            var angUnit = "rad"; 
+        }
+        function degToRadians(deg) {
+            var pi = Math.PI;
+            var rad = deg * pi / 180;
+            return rad;
+        }
+    
+        var canvas = document.getElementById('AngImage');
+        var ctx = canvas.getContext('2d');
+        var symbol, angleTxt, suplementTxt;
+    
+        if (angUnit == "degree") {
+            symbol = "°";
+            angleTxt = parseFloat(ang).toPrecision(5) * 1;
+            suplementTxt = parseFloat(suplement).toPrecision(5) * 1;
+            ang = degToRadians(parseFloat(ang));
+    
+        } else {
+            symbol = " rad";
+            suplementTxt = suplement;
+        
+            angleTxt = ang;
+        }
+    
+        if (canvas.getContext) {
+    
+            var canvasWidth = canvas.width;
+            var canvasHeight = canvas.height;
+            var hipotenusa = Math.sqrt(canvasWidth * canvasWidth + canvasHeight * canvasHeight);
+            var arcRadius = 20;
+            var x0, y0, x1, y1;
+            var x0 = canvasWidth / 2;
+            var y0 = canvasHeight;
+            var ab = Math.sin(ang) * hipotenusa;
+            var y1 = canvasHeight - ab / 2;
+            var catAdjacente = Math.cos(ang) * hipotenusa;
+            var x1 = x0 + catAdjacente / 2;
+    
+            ctx.lineWidth = 3;
+            // x
+            ctx.beginPath();
+            ctx.strokeStyle = "blue";
+            ctx.moveTo(0, y0);
+            ctx.lineTo(canvasWidth, canvasHeight);
+            ctx.stroke();
+    
+    
+            // angle
+            ctx.lineWidth = 2;
+            ctx.setLineDash([5, 2]);
+            ctx.beginPath();
+            ctx.strokeStyle = "red";
+            ctx.moveTo(x0, y0);
+            ctx.lineTo(x1, y1);
+            ctx.stroke();
+            ctx.setLineDash([]);
+            
+    
+            // arc angle
+            ctx.beginPath();
+            ctx.strokeStyle = "black";
+            ctx.arc(canvasWidth / 2, y0, arcRadius, 0, -ang, true);
+            ctx.stroke();
+    
+            ctx.beginPath();
+            ctx.strokeStyle = "black";
+            ctx.arc(canvasWidth / 2, y0, arcRadius, -ang, Math.PI / 2, true);
+            ctx.stroke();
+            ctx.lineWidth = 1;
+    
+            // input angle
+            ctx.font = "13px Arial";
+            ctx.textAlign = "left";
+            ctx.fillStyle = "brown";
+            ctx.fillText(angleTxt + symbol, canvasWidth - 50, canvasHeight - ab / 7 - 5);
+            ctx.stroke();
+    
+            // output angle
+            ctx.fillStyle = "brown";
+            ctx.fillText(suplementTxt + symbol, 5, canvasHeight - ab / 7 - 5);
+            ctx.stroke();
+    
+        }
+    
+    
+    
+    </script>
+    
+
+<script>
+    
+        var validNumber = new RegExp(/^\d*\.?-?\d*$/);
+        var fist_input = document.getElementById("inlineFormInputGroup").value;
+        function validateNumber(elem) {
+            console.log(elem)
+            if (validNumber.test(elem.value)) {
+                fist_input = elem.value;
+            } else {
+                elem.value = fist_input;
+            }
+        }
+
+    </script>
+    
+{% endblock %}

@@ -8,14 +8,14 @@ urlpatterns = [
     path("radian-to-degree-calculator/", views.radtodegcalculator, name="radtodeg"),
     path("angle-of-<angle>-radian-in-degree/", views.tailradtodegcalculator),
 
-    # path("supplementary-angle-calculator/",views.supplementarycalculator, name="supplementary"),
+    path("supplementary-angle-calculator/",views.supplementarycalculator, name="supplementary"),
+    path("supplementary-angle-of-<angle>-in-<angle_type>/", views.tailsupplementarycalculator),
+
     # path("complementary-angle-calculator/",views.complementarycalculator, name="complementary"),
+    # path("complementary-angle-of-<angle>-in-<angle_type>/", views.complementarycalculator),
+
     # path("reflex-angle-calculator/", views.reflexcalculator, name="reflex"),
-   
-   
-    # path("supplementary-angle-of-<angle>-in-<angle_type>/", views.supplementarycalculator, name="supplementary"),
-    # path("complementary-angle-of-<angle>-in-<angle_type>/", views.complementarycalculator, name="complementary"),
-    # path("reflex-angle-of-<angle>-in-<angle_type>/",views.reflexcalculator, name="reflex"),
+    # path("reflex-angle-of-<angle>-in-<angle_type>/",views.reflexcalculator),
 
     
 ]

@@ -1,0 +1,303 @@
+{% extends 'base.html' %}
+
+{%load static%}
+{%block meta%}
+<!-- HTML Defaults Broweser -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Bootstrap Stylesheet and Jquery, Google APIS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+<!-- Mathjax library script -->
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+<!-- End of Mathjax library script -->
+
+<!-- Online Calculator Guru Site Fevicon -->
+<link rel="shortcut icon" href="https://onlinecalculator.guru/static/images/logo/Online-Calculator-Guru-Fevicon.png"
+    type="icon">
+<!-- Online Calculator Guru Project Style Sheet -->
+{%block css%}
+<link rel="stylesheet" href="https://onlinecalculator.guru/static/style.css">
+{%endblock%}
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    
+<!-- Meta Title, Description and Canonical URL Starts --->
+<title>Supplementary Angles Calculator - Find Supplementary Angle</title>
+<meta name="description" content="Supplementary Angles Calculator provides the supplement angle for the given input angle. Know the detailed process on how to calculate the supplementary angle." />
+<link rel="canonical" href="{{request.build_absolute_uri}}">
+<!-- Meta Title, Description and Canonical URL ENDS --->
+
+<!-- OPEN GRAPH CONFIGURATIONS STARTS -->
+<!--  FACEBOOK CONFIGURATION STARTS  -->
+<meta content="https://www.facebook.com/OnlineCalculator-Guru-131572098650589/" property="og:url" />
+<meta property="og:title" content="Supplementary Angles Calculator - Find Supplementary Angle" />
+<meta property="og:description" content="Supplementary Angles Calculator provides the supplement angle for the given input angle. Know the detailed process on how to calculate the supplementary angle." />
+<meta content="" property="og:site_name" />
+
+    <meta property="og:image:type" content="image/png" />
+<meta property="og:image:height" content="435" />
+<meta property="og:image:width" content="354" />
+<!--  FACEBOOK CONFIGURATION ENDS  -->
+<!-- TWITTER CARD CONFIGURATION STARTS  -->
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="https://twitter.com/onlinecalculator" />
+<meta name="twitter:title" content="Supplementary Angles Calculator - Find Supplementary Angle" />
+<meta name="twitter:description" content="Supplementary Angles Calculator provides the supplement angle for the given input angle. Know the detailed process on how to calculate the supplementary angle." />
+
+<meta property="twitter:image:height" content="435" />
+<meta property="twitter:image:width" content="354" />
+<!-- TWITTER CARD CONFIGURATION ENDS  -->
+<!--  LINKEDIN CONFIGURATION STARTS-->
+
+<meta property='og:title' content="Supplementary Angles Calculator - Find Supplementary Angle" />
+
+<meta property='og:description' content="Supplementary Angles Calculator provides the supplement angle for the given input angle. Know the detailed process on how to calculate the supplementary angle." />
+<meta property='og:url' content="https://www.linkedin.com/in/onlinecalculator/" />
+<!-- end of linkedin CONFIGURATIONS ENDS -->
+<!-- OPEN GRAPH CONFIGURATION ENDS -->
+<!-- FAQ SCHEMA STARTS -->
+
+{%endblock%}
+
+{%block content%}
+
+<style>
+
+   
+    input {
+        text-align: right;
+    }
+
+    #inputform{
+        width: 450px;
+      }
+
+    @media only screen and (min-width: 380px) and (max-width: 530px)  {
+      #inputform{
+        width: 310px;
+      }  
+  }
+
+  @media only screen and (max-width: 379px)  {
+      #inputform{
+        width: 200px;
+      }  
+  }
+</style>
+
+
+<div class="container" style="height: auto !important;">
+    <div class="card c1">
+        <div class="card-header">
+            <h1 class="center">Supplementary Angles Calculator</h1>
+        </div>
+        <div class="card-body">
+            <ul class="messages">
+                {% if message %}
+                <p  id="message_container" class="alert alert-danger text-center" 
+                    style="color:red">{{ message }}</p>
+                {% endif %}   
+
+            </ul>
+
+            <p>Supplementary Angles Calculator is an extraordinary tool that helps to calculate the supplementary angle for any given angle. Give any angle as input and tap on the calculate button to find the supplementary angle in blink of an eye.</p>
+            
+            <div class="center">
+            <div class="btn-group btn-group-sm">
+             <a href="{% url 'degtorad' %}"><button type="button" class="btn btn-warning rounded-bottom  text-break" style="border-radius: 15px;">Deg to Rad</button></a>
+             <a href="{% url 'radtodeg' %}"><button type="button" class="btn btn-warning rounded-bottom  text-break" style="border-radius: 15px;">Rad to Deg</button></a>
+             <a href="{% url 'supplementary' %}"><button type="button" class="btn btn-success  rounded-bottom  text-break" style="border-radius: 15px;">Supplementary</button></a>
+             <a href=""><button type="button" class="btn btn-warning  rounded-bottom  text-break" style="border-radius: 15px;">Complementary</button></a>
+             <a href=""><button type="button" class="btn btn-warning  rounded-bottom  text-break" style="border-radius: 15px;">Reflex</button></a> 
+            </div></div>
+            
+            
+        
+        <div class="container card" id="inputform">
+            <form action="{% url 'supplementary' %}" method="POST" id="my_form" >
+                {% csrf_token %}
+                <div class="col-auto">
+                    <br>
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text"><strong>Angle</strong></div>
+                        </div>
+                        <input type="number" min="0" max="180" step="any" oninput="validateNumber(this);" id="inlineFormInputGroup" required="" class="form-control" name="Angle" id="Angle" {% if Angle or Angle == 0 %} value="{{Angle}}" {% else %} value="86" {% endif %}>
+
+                        <select class="select form-control" id="inlineFormInputGroup" name="AG_TY" id="GT_op">
+
+                            {% if AG_TY == 'degree' %}
+                            <option value="degree" selected="selected">degree</option>
+                            {% else %}
+                            <option value="degree">degree</option>
+                            {% endif %}
+
+                            {% if AG_TY == 'radian' %}
+                            <option value="radian" selected="selected">radian</option>
+                            {% else %}
+                            <option value="radian">radian</option>
+                            {% endif %}
+    
+                        </select>
+                        
+                    </div>
+
+                    
+
+                   <div class=" center col mt-2 ">
+                        <center><button type="submit" class="btn btn-danger" name="f1" value="f1">Calculate</button></center>
+                    </div>
+                    <br>
+
+            </form>
+        </div>
+        </div>
+
+        <p><strong>Examples:</strong></p>
+
+        <div class="row">
+            <div class="col-sm-6">
+              <ul>
+                <li><a href="/geometry/supplementary-angle-of-21-in-degree/">Supplementary angle of 21°</a></li>
+                <li><a href="/geometry/supplementary-angle-of-90-in-degree/">Supplementary angle of 90°</a></li>
+                <li><a href="/geometry/supplementary-angle-of-180-in-degree/">Supplementary angle of 180°</a></li>
+                <li><a href="/geometry/supplementary-angle-of-37.5-in-degree/">Supplementary angle of 37.5°</a></li>
+                <li><a href="/geometry/supplementary-angle-of-165-in-degree/">Supplementary angle of 165°</a></li>
+              </ul>
+            </div>
+            <div class="col-sm-6">
+              <ul>
+                <li><a href="/geometry/supplementary-angle-of-1-in-radian/">Supplementary angle of 1<sup>rad</sup></a></li>
+                <li><a href="/geometry/supplementary-angle-of-2-in-radian/">Supplementary angle of 2<sup>rad</sup></a></li>
+                <li><a href="/geometry/supplementary-angle-of-3-in-radian/">Supplementary angle of 3<sup>rad</sup></a></li>
+                <li><a href="/geometry/supplementary-angle-of-3.1-in-radian/">Supplementary angle of 3.1<sup>rad</sup></a></li>
+                <li><a href="/geometry/supplementary-angle-of-2.2-in-radian/">Supplementary angle of 2.2<sup>rad</sup></a></li>
+              </ul>
+            </div>
+        </div>
+
+        <p> <strong>Supplementary Angles Calculator:</strong>Our user-friendly Supplement Angle Calculator allows to find whether the given two angles are supplement or not and also obtains the supplementary angle for the provided input angle. Check the following sections to know the complete details about supplemenatry angles and how to calculate the supplementary angle. Also, find the solved example questions.</p>
+    </div>
+</div>
+
+
+<div class="card">
+        <div class="card-header">
+            <h2>What are Supplementary Angles?</h2>
+        </div>
+        
+        
+        <div class="card-body"> 
+            <p>The word supplementary describes a special relationship between two angles. The supplementray angles defination says that the sum of two angles is equal to 180° or π. In other words, if the the adjacent angles form a straight line, then are supplemenatry angles.</p>
+
+            <p>Two angles are called supplemenatry angles when</p>
+            <ul>
+                <li>One of its angle is an acute angle and other is an obtuse nagle.</li>
+                <li>Both angles are right angles</li>
+            </ul>
+
+            <p><strong>Properties of Supplementary Angles</strong></p>
+            <ul>
+                <li>The two angles are called supplemenatary angles only when their sum is 180°.</li>
+                <li>The two angles together make a straight line, but angles need to be together.</li>
+                <li>The letter "S" in supplementary angles stands for "Straight line".</li>
+            </ul>
+
+            <h3>Supplementary Angle Formula</h3>
+            <p>The supplementary angles formula is here:</p>
+
+            <p><strong>Supplementary Angle = 180° - angle = π - angle</strong></p>
+            <p><strong>Examples:</strong></p>
+            <p>Some of the examples of supplementary angles are:</p>
+            <ul>
+                <li>120° + 60°= 180°</li>
+                <li>150°+ 30° = 180°</li>
+                <li>115° + 65° = 180°</li>
+            </ul>
+
+            <h3>How to Calculate Supplementray Angle?</h3>
+            <p>Here are the steps to find the supplementary angle.</p>
+            <ul>
+                <li>You have to know atleast one angle to know its supplement.</li>
+                <li>Subtract the angle from 180°.</li>
+                <li>The difference angle is called the supplementary angle.</li>
+            </ul>
+
+            <strong>Steps to Check 2 Angles are Supplementary or Not</strong>
+            <ul>
+                <li>Get the values of two angles.</li>
+                <li>Add those two angles.</li>
+                <li>If the sum is equal to π, then they are supplement.</li>
+                <li>Otherwise, they are not supplementary angles.</li>
+            </ul>
+
+            <h3>Examples on Supplementary Angles</h3>
+            <strong>Example 1:</strong>
+            <p>Check if 89° and 95° are supplementary angles.</p>
+            <strong>Solution:</strong>
+            <p>Given two angles are 89° and 95°</p>
+            <p>Find the sum of angles</p>
+            <p>89° + 95° = 184°</p>
+            <p>As the sum is not equal to 180°, the angles are not supplementary.</p>
+            
+
+            <strong>Example 2:</strong>
+            <p>Find the supplementary angle for 86°</p>
+            <strong>Solution:</strong>
+            <p>Given angle is 86°</p>
+            <p>To get the supplementray angle, find the difference between 180° and 86°</p>
+            <p>180° - 86°= 94°</p>
+            <p>Therefore, supplementary angle for 86° is 94°.</p>
+            
+            <p>Visit our site <a href="https://lcmgcf.com/">LCMGCF.Com</a> and make use of LCM and GCF calculators for free at any time and check your answers instantly.</p>
+
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header">
+            <h3>FAQs on Supplementray Angles Calculator</h3>
+        </div>
+        <div class="card-body">
+            <strong>1. Do supplementary angles add up to 360°?</strong>
+            <p>No, supplementray angles addition is not equal to 360°. </p><hr>
+            <strong>2. What is the supplementary angle of 95°?</strong>
+            <p>The supplementary angle of 95° is 180° - 95° = 85°.</p><hr>
+            <strong>3. How do you find supplementary angles?</strong>
+            <p>To find the supplementary angles, we have to subtract one angle from 180 degrees. THe difference is the supplementary for the given nagle.</p>
+            <strong>4. What is supplementary angle with example?</strong>
+            <p>Supplementary angles are two angles whose add up to 180 degrees. The 2 angles of a liner pair are supplementary. The example for supplementary angles is 50° and 130°.</p>
+        </div>
+
+    </div>
+    
+
+
+
+<script>
+    
+        var validNumber = new RegExp(/^\d*\.?-?\d*$/);
+        var fist_input = document.getElementById("inlineFormInputGroup").value;
+        function validateNumber(elem) {
+            console.log(elem)
+            if (validNumber.test(elem.value)) {
+                fist_input = elem.value;
+            } else {
+                elem.value = fist_input;
+            }
+        }
+
+    </script>
+    
+   
+    
+    
+    
+    {% endblock %}
