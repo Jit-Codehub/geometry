@@ -160,40 +160,43 @@ def tailradtodegcalculator(request, angle=None):
 
 
 def supplementarycalculator(request):
-  # try:
+  try:
     if request.method == "GET":
       return render(request,"geometry/supplementary.html")
     else:
       angle = request.POST['Angle']
       angle_type = request.POST['AG_TY']
 
-      if angle_type == "radian" and float(angle)>3.14:
-        return render(request,"geometry/supplementary.html",{'message':"Angle can not be greater than 3.14 radians",'Angle':"angle","AG_TY":angle_type})
+      if angle_type == "radian" and float(angle)>3.141:
+        return render(request,"geometry/supplementary.html",{'message':"Angle can not be greater than 3.141 radians",'Angle':"angle","AG_TY":angle_type})
 
       return redirect(f'/geometry/supplementary-angle-of-{angle}-in-{angle_type}/')
-  # except:
-    # return render(request,"geometry/supplementary.html",{'message':"Something went wrong, please try again"})
+  except:
+    return render(request,"geometry/supplementary.html",{'message':"Something went wrong, please try again"})
 
 
 
 def tailsupplementarycalculator(request,angle=None,angle_type=None):
-  # try:
+  try:
     print("I am tail")
     print(f'angle_type={angle_type}')
     print(f'angle={angle}')
     
-    # query=radtodeg.objects.filter(input=angle)
-    # if angle != None and len(query)!=0:
-    #   q = query[0]
-    #   context = {
-    #     'Angle':q.input,
-    #     'value':q.result,
-    #     'detailSteps':q.detailSteps,
-    #     "exp":list(random_number_generator(int(float(angle)),15))
-    #   }
-    #   print(context)
-    #   print("***DATABASE******DATABASE*************")
-    #   return render(request,"geometry/supplementary-Degree.html",context)
+    query=supplementary.objects.filter(input=angle,input_type=angle_type)
+    if angle != None and len(query)!=0:
+      q = query[0]
+      context = {
+        'Angle':q.input,
+        'value':q.result,
+        'detailSteps':q.detailSteps,
+        "exp":list(random_number_generator2(90,10)) if angle_type == 'degree' else get_float_list(0, 3.14, 10)
+      }
+      print(context)
+      print("***DATABASE******DATABASE*************")
+      if angle_type == 'degree':
+        return render(request,"geometry/supplementary-Degree.html",context)
+      else:
+        return render(request,"geometry/supplementary-Radian.html",context)
     print(f'I am outside degree')
     if angle != None and angle_type == 'degree':
       print(f'I am inside degree')
@@ -214,8 +217,8 @@ def tailsupplementarycalculator(request,angle=None,angle_type=None):
       url = f'/geometry/supplementary-angle-of-{angle}-in-{angle_type}/'
       
       
-      # obj = radtodeg(input=angle,result=value,detailSteps=detailSteps,url=url,date_modified=datetime.now())
-      # obj.save()
+      obj = supplementary(input=angle,input_type=angle_type,result=value,detailSteps=detailSteps,url=url,date_modified=datetime.now())
+      obj.save()
       context = {
         'Angle':angle,
         'value':value,
@@ -223,7 +226,7 @@ def tailsupplementarycalculator(request,angle=None,angle_type=None):
         "exp":list(random_number_generator2(90,10))
       }
       print(context)
-      print("****************I am saved in Database*************")
+      print("****************I am saved in Degree Database*************")
       
       return render(request,"geometry/supplementary-Degree.html",context)
 
@@ -248,8 +251,8 @@ def tailsupplementarycalculator(request,angle=None,angle_type=None):
       url = f'/geometry/supplementary-angle-of-{angle}-in-{angle_type}/'
       
       
-      # obj = radtodeg(input=angle,result=value,detailSteps=detailSteps,url=url,date_modified=datetime.now())
-      # obj.save()
+      obj = supplementary(input=angle,input_type=angle_type,result=value,detailSteps=detailSteps,url=url,date_modified=datetime.now())
+      obj.save()
       context = {
         'Angle':angle,
         'value':value,
@@ -257,11 +260,11 @@ def tailsupplementarycalculator(request,angle=None,angle_type=None):
         "exp":get_float_list(0, 3.14, 10)
       }
       print(context)
-      print("****************I am saved in Database*************")
+      print("****************I am saved in Radian Database*************")
       
       return render(request,"geometry/supplementary-Radian.html",context)
-  # except:
-    # return render(request,"geometry/supplementary.html",{'message':"Something went wrong, please try again"})
+  except:
+    return render(request,"geometry/supplementary.html",{'message':"Something went wrong, please try again"})
 
 
 
