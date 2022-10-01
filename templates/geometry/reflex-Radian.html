@@ -71,8 +71,7 @@
 
 <style>
 
-   
-    input {
+input {
         text-align: right;
     }
 
@@ -80,15 +79,28 @@
         width: 450px;
       }
 
+      #AngImage{
+        width: 400;
+        height: 400;
+      }
+
     @media only screen and (min-width: 380px) and (max-width: 530px)  {
       #inputform{
         width: 310px;
+      }
+      #AngImage{
+        width: 200px;
+        height: 200px;
       }  
   }
 
   @media only screen and (max-width: 379px)  {
       #inputform{
         width: 200px;
+      } 
+      #AngImage{
+        width: 200px;
+        height: 200px;
       }  
   }
 </style>
@@ -174,7 +186,7 @@
             
 
                <div class="center">
-                   <canvas id="AngImage" width="400" height="400">
+                   <canvas id="AngImage">
                        You browser does not support "Canvas".
                    </canvas>
                </div>
