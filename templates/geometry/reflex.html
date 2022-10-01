@@ -1,0 +1,286 @@
+{% extends 'base.html' %}
+
+{%load static%}
+{%block meta%}
+<!-- HTML Defaults Broweser -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Bootstrap Stylesheet and Jquery, Google APIS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+<!-- Mathjax library script -->
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+<!-- End of Mathjax library script -->
+
+<!-- Online Calculator Guru Site Fevicon -->
+<link rel="shortcut icon" href="https://onlinecalculator.guru/static/images/logo/Online-Calculator-Guru-Fevicon.png"
+    type="icon">
+<!-- Online Calculator Guru Project Style Sheet -->
+{%block css%}
+<link rel="stylesheet" href="https://onlinecalculator.guru/static/style.css">
+{%endblock%}
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    
+<!-- Meta Title, Description and Canonical URL Starts --->
+<title>Reflex or Conjugate Angles Calculator - How To Find Reflex or Conjugate Angles?</title>
+<meta name="description" content="Find the conjugate or reflex angle using our reflex or conjugate angles calculator tool for free and also with some detailed steps." />
+<link rel="canonical" href="{{request.build_absolute_uri}}">
+<!-- Meta Title, Description and Canonical URL ENDS --->
+
+<!-- OPEN GRAPH CONFIGURATIONS STARTS -->
+<!--  FACEBOOK CONFIGURATION STARTS  -->
+<meta content="https://www.facebook.com/OnlineCalculator-Guru-131572098650589/" property="og:url" />
+<meta property="og:title" content="Reflex or Conjugate Angles Calculator - How To Find Reflex or Conjugate Angles?" />
+<meta property="og:description" content="Find the conjugate or reflex angle using our reflex or conjugate angles calculator tool for free and also with some detailed steps." />
+<meta content="" property="og:site_name" />
+
+    <meta property="og:image:type" content="image/png" />
+<meta property="og:image:height" content="435" />
+<meta property="og:image:width" content="354" />
+<!--  FACEBOOK CONFIGURATION ENDS  -->
+<!-- TWITTER CARD CONFIGURATION STARTS  -->
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="https://twitter.com/onlinecalculator" />
+<meta name="twitter:title" content="Reflex or Conjugate Angles Calculator - How To Find Reflex or Conjugate Angles?" />
+<meta name="twitter:description" content="Find the conjugate or reflex angle using our reflex or conjugate angles calculator tool for free and also with some detailed steps." />
+
+<meta property="twitter:image:height" content="435" />
+<meta property="twitter:image:width" content="354" />
+<!-- TWITTER CARD CONFIGURATION ENDS  -->
+<!--  LINKEDIN CONFIGURATION STARTS-->
+
+<meta property='og:title' content="Reflex or Conjugate Angles Calculator - How To Find Reflex or Conjugate Angles?" />
+
+<meta property='og:description' content="Find the conjugate or reflex angle using our reflex or conjugate angles calculator tool for free and also with some detailed steps." />
+<meta property='og:url' content="https://www.linkedin.com/in/onlinecalculator/" />
+<!-- end of linkedin CONFIGURATIONS ENDS -->
+<!-- OPEN GRAPH CONFIGURATION ENDS -->
+<!-- FAQ SCHEMA STARTS -->
+
+{%endblock%}
+
+{%block content%}
+
+<style>
+
+   
+    input {
+        text-align: right;
+    }
+
+    #inputform{
+        width: 450px;
+      }
+
+    @media only screen and (min-width: 380px) and (max-width: 530px)  {
+      #inputform{
+        width: 310px;
+      }  
+  }
+
+  @media only screen and (max-width: 379px)  {
+      #inputform{
+        width: 200px;
+      }  
+  }
+</style>
+
+
+<div class="container" style="height: auto !important;">
+    <div class="card c1">
+        <div class="card-header">
+            <h1 class="center">Reflex or Conjugate Angles Calculator</h1>
+        </div>
+        <div class="card-body">
+            <ul class="messages">
+                {% if message %}
+                <p  id="message_container" class="alert alert-danger text-center" 
+                    style="color:red">{{ message }}</p>
+                {% endif %}   
+
+            </ul>
+
+            <p>Handy reflex or conjugate angles calculator is the free online tool which helps in finding the conjugate angle for the given angle easily within seconds. To use this reflex or conjugate calculator, simply give an angle as input and the hit the calculate button that provides you answer in seconds.</p>
+            
+            <div class="center">
+            <div class="btn-group btn-group-sm">
+             <a href="{% url 'degtorad' %}"><button type="button" class="btn btn-warning rounded-bottom  text-break" style="border-radius: 15px;">Deg to Rad</button></a>
+             <a href="{% url 'radtodeg' %}"><button type="button" class="btn btn-warning rounded-bottom  text-break" style="border-radius: 15px;">Rad to Deg</button></a>
+             <a href="{% url 'supplementary' %}"><button type="button" class="btn btn-warning  rounded-bottom  text-break" style="border-radius: 15px;">Supplementary</button></a>
+             <a href="{% url 'complementary' %}"><button type="button" class="btn btn-warning  rounded-bottom  text-break" style="border-radius: 15px;">Complementary</button></a>
+             <a href="{% url 'reflex' %}"><button type="button" class="btn btn-success  rounded-bottom  text-break" style="border-radius: 15px;">Reflex</button></a> 
+            </div></div>
+            
+            
+        
+        <div class="container card" id="inputform">
+            <form action="{% url 'reflex' %}" method="POST" id="my_form" >
+                {% csrf_token %}
+                <div class="col-auto">
+                    <br>
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text"><strong>Angle</strong></div>
+                        </div>
+                        <input type="number" min="0" max="360" step="any" oninput="validateNumber(this);" id="inlineFormInputGroup" required="" class="form-control" name="Angle" id="Angle" {% if Angle or Angle == 0 %} value="{{Angle}}" {% else %} value="86" {% endif %}>
+
+                        <select class="select form-control" id="inlineFormInputGroup" name="AG_TY" id="GT_op">
+
+                            {% if AG_TY == 'degree' %}
+                            <option value="degree" selected="selected">degree</option>
+                            {% else %}
+                            <option value="degree">degree</option>
+                            {% endif %}
+
+                            {% if AG_TY == 'radian' %}
+                            <option value="radian" selected="selected">radian</option>
+                            {% else %}
+                            <option value="radian">radian</option>
+                            {% endif %}
+    
+                        </select>
+                        
+                    </div>
+
+                    
+
+                   <div class=" center col mt-2 ">
+                        <center><button type="submit" class="btn btn-danger" name="f1" value="f1">Calculate</button></center>
+                    </div>
+                    <br>
+
+            </form>
+        </div>
+        </div>
+
+        <p><strong>Examples:</strong></p>
+
+        <div class="row">
+            <div class="col-sm-6">
+              <ul>
+                <ul>
+                    <li><a href="/geometry/reflex-angle-of-21-in-degree/">Reflex angle of 21°</a></li>
+                    <li><a href="/geometry/reflex-angle-of-90-in-degree/">Reflex angle of 90°</a></li>
+                    <li><a href="/geometry/reflex-angle-of-137-in-degree/">Reflex angle of 137°</a></li>
+                    <li><a href="/geometry/reflex-angle-of-27.5-in-degree/">Reflex angle of 27.5°</a></li>
+                    <li><a href="/geometry/reflex-angle-of-265-in-degree/">Reflex angle of 265°</a></li>
+                  </ul>
+            </div>
+            <div class="col-sm-6">
+                <ul>
+                    <li><a href="/geometry/reflex-angle-of-1-in-radian/">Reflex angle of 1<sup>rad</sup></a></li>
+                    <li><a href="/geometry/reflex-angle-of-2.2-in-radian/">Reflex angle of 2.2<sup>rad</sup></a></li>
+                    <li><a href="/geometry/reflex-angle-of-1.8-in-radian/">Reflex angle of 1.8<sup>rad</sup></a></li>
+                    <li><a href="/geometry/reflex-angle-of-5-in-radian/">Reflex angle of 5<sup>rad</sup></a></li>
+                    <li><a href="/geometry/reflex-angle-of-2.3-in-radian/">Reflex angle of 2.3<sup>rad</sup></a></li>
+                  </ul>
+            </div>
+        </div>
+
+        <p> <strong>Reflex or Conjugate Angles Calculator:</strong> Trying to find the reflex or conjugate angles? Then dont work hard to calculate the angles as we have provided with a calculator tool that calculates the conjugate angles for you easily. And also this tool is free of cost. Along with this calculator we are providing you with the definition, formulas, steps and examples that will help you learn about reflex angles in an easy method.</p>
+    </div>
+</div>
+
+
+<div class="card">
+        <div class="card-header">
+            <h2>What is Reflex or Conjugate Angles?</h2>
+        </div>
+        
+        
+        <div class="card-body"> 
+            <p>In algebra, if you add any two angles, the sum of the two angles should be 360° or π then it is called as reflex or conjugate angles. Reflex angles always have the positive measures.</p>
+            <p>For example, 190° + 170° = 360°.</p>
+
+            
+
+            
+            <h3>Reflex or Conjugate Angle Formula</h3>
+            <p>Look into the formula to calculate the conjugate angles easily.</p>
+            <p>In Degrees,</p>
+            <p><strong>Conjugate Angles = 360° - x</strong></p>
+            <p>In Radians,</p>
+            <p><strong>Conjugate Angles = 2π - x</strong></p>
+
+            <h3>How To Find Reflex or Conjugate Angles?</h3>
+            <p>Follow the guidelines carefully to calculate the conjugate angles.</p>
+            <ul>
+                <li>Take the number that was given in the problem. </li>
+                <li>Apply the formula.</li>
+                <li>Finally, you will get the problem easily.</li>
+                <p>(or)</p>
+                <li>Give any two numbers.</li>
+                <li>Add those two numbers.</li>
+                <li>If you get the value as 360° then it is conjugate angles.</li>
+            </ul>
+
+            <p><strong>Reflex or Conjugate Angles Examples</strong></p>
+            <p><strong>Examples 1:</strong></p>
+            <p><strong> Question:</strong> Find the reflex or conjugate angles for 64°?</p>
+            <strong>Solution:</strong>
+            <p>Given, angle is 64°</p>
+            <p>64° + x = 360°</p>
+            <p>X = 360° - 64°</p>
+            <p>=> 296°.</p>
+            <p>Therefore, the value of other conjugate angle is 296°.</p>
+            
+
+            <p><strong>Example 2:</strong></p>
+            <p><strong>Question:</strong> Check if 235° and 176° are conjugate angles?</p>
+            <strong>Solution:</strong>
+            <p> Given, angle is 235° and 176°.</p>
+            <p>Angle 1 + Angle 2 = 360°.</p>
+            <p>235° + 176° = 411°</p>
+            <p>Therefore, the two angles 235° and 176° are not conjugate angles as they are not equal to 360°.</p>
+            <p>Seek help for all your maths concepts, as we are providing you with calculator tools at <a href="http://lcmgcf.com/">LCMGCF.Com</a></p>
+
+            
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header">
+            <h3>FAQs on Reflex or Conjugate Angles Calculator</h3>
+        </div>
+        <div class="card-body">
+            <strong>1. How to use this conjugate angles calculator?</strong>
+            <p>Simply, give the inputs in the input fields and then click on the calculate button and get the answers instantly.</p><hr>
+            <strong>2. Does conjugate or reflex angles add upto 360°?</strong>
+            <p>Yes, conjugate or reflex angles add upto 360°.</p><hr>
+            <strong>3. What is the formula for conjugate angles in radians?</strong>
+            <p>The formula for conjugate angles in radians, Conjugate Angles = 2π - x.</p>
+           
+        </div>
+
+    </div>
+    
+
+
+
+<script>
+    
+        var validNumber = new RegExp(/^\d*\.?-?\d*$/);
+        var fist_input = document.getElementById("inlineFormInputGroup").value;
+        function validateNumber(elem) {
+            console.log(elem)
+            if (validNumber.test(elem.value)) {
+                fist_input = elem.value;
+            } else {
+                elem.value = fist_input;
+            }
+        }
+
+    </script>
+    
+   
+    
+    
+    
+    {% endblock %}

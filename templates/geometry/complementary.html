@@ -1,0 +1,287 @@
+{% extends 'base.html' %}
+
+{%load static%}
+{%block meta%}
+<!-- HTML Defaults Broweser -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Bootstrap Stylesheet and Jquery, Google APIS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+<!-- Mathjax library script -->
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+<!-- End of Mathjax library script -->
+
+<!-- Online Calculator Guru Site Fevicon -->
+<link rel="shortcut icon" href="https://onlinecalculator.guru/static/images/logo/Online-Calculator-Guru-Fevicon.png"
+    type="icon">
+<!-- Online Calculator Guru Project Style Sheet -->
+{%block css%}
+<link rel="stylesheet" href="https://onlinecalculator.guru/static/style.css">
+{%endblock%}
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    
+<!-- Meta Title, Description and Canonical URL Starts --->
+<title>Complementary Angles Calculator - How To Find Complementary Angles?</title>
+<meta name="description" content="Complementary Angles Calculator is the online free tool which will help you in estimating the complementary angle for the given angle." />
+<link rel="canonical" href="{{request.build_absolute_uri}}">
+<!-- Meta Title, Description and Canonical URL ENDS --->
+
+<!-- OPEN GRAPH CONFIGURATIONS STARTS -->
+<!--  FACEBOOK CONFIGURATION STARTS  -->
+<meta content="https://www.facebook.com/OnlineCalculator-Guru-131572098650589/" property="og:url" />
+<meta property="og:title" content="Complementary Angles Calculator - How To Find Complementary Angles?" />
+<meta property="og:description" content="Complementary Angles Calculator is the online free tool which will help you in estimating the complementary angle for the given angle." />
+<meta content="" property="og:site_name" />
+
+    <meta property="og:image:type" content="image/png" />
+<meta property="og:image:height" content="435" />
+<meta property="og:image:width" content="354" />
+<!--  FACEBOOK CONFIGURATION ENDS  -->
+<!-- TWITTER CARD CONFIGURATION STARTS  -->
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="https://twitter.com/onlinecalculator" />
+<meta name="twitter:title" content="Complementary Angles Calculator - How To Find Complementary Angles?" />
+<meta name="twitter:description" content="Complementary Angles Calculator is the online free tool which will help you in estimating the complementary angle for the given angle." />
+
+<meta property="twitter:image:height" content="435" />
+<meta property="twitter:image:width" content="354" />
+<!-- TWITTER CARD CONFIGURATION ENDS  -->
+<!--  LINKEDIN CONFIGURATION STARTS-->
+
+<meta property='og:title' content="Complementary Angles Calculator - How To Find Complementary Angles?" />
+
+<meta property='og:description' content="Complementary Angles Calculator is the online free tool which will help you in estimating the complementary angle for the given angle." />
+<meta property='og:url' content="https://www.linkedin.com/in/onlinecalculator/" />
+<!-- end of linkedin CONFIGURATIONS ENDS -->
+<!-- OPEN GRAPH CONFIGURATION ENDS -->
+<!-- FAQ SCHEMA STARTS -->
+
+{%endblock%}
+
+{%block content%}
+
+<style>
+
+   
+    input {
+        text-align: right;
+    }
+
+    #inputform{
+        width: 450px;
+      }
+
+    @media only screen and (min-width: 380px) and (max-width: 530px)  {
+      #inputform{
+        width: 310px;
+      }  
+  }
+
+  @media only screen and (max-width: 379px)  {
+      #inputform{
+        width: 200px;
+      }  
+  }
+</style>
+
+
+<div class="container" style="height: auto !important;">
+    <div class="card c1">
+        <div class="card-header">
+            <h1 class="center">Complementary Angles Calculator</h1>
+        </div>
+        <div class="card-body">
+            <ul class="messages">
+                {% if message %}
+                <p  id="message_container" class="alert alert-danger text-center" 
+                    style="color:red">{{ message }}</p>
+                {% endif %}   
+
+            </ul>
+
+            <p>Our handy free online complementary angles calculator tool allows you to display the complementary angle for the given angle within a fraction of seconds. All you need to do is provide any angle you like as input and then hit the calculate button.</p>
+            
+            <div class="center">
+            <div class="btn-group btn-group-sm">
+             <a href="{% url 'degtorad' %}"><button type="button" class="btn btn-warning rounded-bottom  text-break" style="border-radius: 15px;">Deg to Rad</button></a>
+             <a href="{% url 'radtodeg' %}"><button type="button" class="btn btn-warning rounded-bottom  text-break" style="border-radius: 15px;">Rad to Deg</button></a>
+             <a href="{% url 'supplementary' %}"><button type="button" class="btn btn-warning  rounded-bottom  text-break" style="border-radius: 15px;">Supplementary</button></a>
+             <a href="{% url 'complementary' %}"><button type="button" class="btn btn-success  rounded-bottom  text-break" style="border-radius: 15px;">Complementary</button></a>
+             <a href="{% url 'reflex' %}"><button type="button" class="btn btn-warning  rounded-bottom  text-break" style="border-radius: 15px;">Reflex</button></a> 
+            </div></div>
+            
+            
+        
+        <div class="container card" id="inputform">
+            <form action="{% url 'complementary' %}" method="POST" id="my_form" >
+                {% csrf_token %}
+                <div class="col-auto">
+                    <br>
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text"><strong>Angle</strong></div>
+                        </div>
+                        <input type="number" min="0" max="90" step="any" oninput="validateNumber(this);" id="inlineFormInputGroup" required="" class="form-control" name="Angle" id="Angle" {% if Angle or Angle == 0 %} value="{{Angle}}" {% else %} value="86" {% endif %}>
+
+                        <select class="select form-control" id="inlineFormInputGroup" name="AG_TY" id="GT_op">
+
+                            {% if AG_TY == 'degree' %}
+                            <option value="degree" selected="selected">degree</option>
+                            {% else %}
+                            <option value="degree">degree</option>
+                            {% endif %}
+
+                            {% if AG_TY == 'radian' %}
+                            <option value="radian" selected="selected">radian</option>
+                            {% else %}
+                            <option value="radian">radian</option>
+                            {% endif %}
+    
+                        </select>
+                        
+                    </div>
+
+                    
+
+                   <div class=" center col mt-2 ">
+                        <center><button type="submit" class="btn btn-danger" name="f1" value="f1">Calculate</button></center>
+                    </div>
+                    <br>
+
+            </form>
+        </div>
+        </div>
+
+        <p><strong>Examples:</strong></p>
+
+        <div class="row">
+            <div class="col-sm-6">
+              <ul>
+                <ul>
+                    <li><a href="/geometry/complementary-angle-of-21-in-degree/">Complementary angle of 21°</a></li>
+                    <li><a href="/geometry/complementary-angle-of-90-in-degree/">Complementary angle of 90°</a></li>
+                    <li><a href="/geometry/complementary-angle-of-37-in-degree/">Complementary angle of 37°</a></li>
+                    <li><a href="/geometry/complementary-angle-of-37.5-in-degree/">Complementary angle of 37.5°</a></li>
+                    <li><a href="/geometry/complementary-angle-of-65-in-degree/">Complementary angle of 65°</a></li>
+                  </ul>
+            </div>
+            <div class="col-sm-6">
+                <ul>
+                    <li><a href="/geometry/complementary-angle-of-1-in-radian/">Complementary angle of 1<sup>rad</sup></a></li>
+                    <li><a href="/geometry/complementary-angle-of-0.2-in-radian/">Complementary angle of 0.2<sup>rad</sup></a></li>
+                    <li><a href="/geometry/complementary-angle-of-1.2-in-radian/">Complementary angle of 1.2<sup>rad</sup></a></li>
+                    <li><a href="/geometry/complementary-angle-of-1.5-in-radian/">Complementary angle of 1.5<sup>rad</sup></a></li>
+                    <li><a href="/geometry/complementary-angle-of-1.56-in-radian/">Complementary angle of 1.56<sup>rad</sup></a></li>
+                  </ul>
+            </div>
+        </div>
+
+        <p> <strong>Complementary Angles Calculator:</strong>Are you feeling difficulty to find the complementary angles for the given angle? Then you came to the right place as we have provided you with the easy calculator tool that provides you the complementary angle for any given angle immediately. And also provided you with complete information about complementary angles, examples, steps and many more. Start reading now!!</p>
+    </div>
+</div>
+
+
+<div class="card">
+        <div class="card-header">
+            <h2>What is a Complementary Angle?</h2>
+        </div>
+        
+        
+        <div class="card-body"> 
+            <p>In mathematics, any two angles that add upto 90 degrees or π/2 is called complementary angle. The angles may not be adjacent to each other but when we add those angles, it should be 90 degrees.</p>
+
+            <p>For example, 60° + 30° = 90°.</p>
+
+            
+            <h3>Complementary Angle Formula</h3>
+            <p>Look into the formulas, to find the complementary angle is given below.</p>
+
+            <p><strong>Complementary angle = 90° - angle.</strong></p>
+            <p>In Radians,</p>
+            <p><strong>Complementary angle = π/2 - angle</strong></p>
+
+            <h3>How to Find Complementary Angle?</h3>
+            <p>Look into the guidelines carefully that are given below to find the complementary angles easily.</p>
+            <ul>
+                <li>Take any angle that was given in the problem.</li>
+                <li>And, let us take the unknown angle as x.</li>
+                <li>Then, write the given angle with equal to 90 degrees as we know the definition of complementary angle. or use the formula of degrees or radians.</li>
+                <li>Simplify the equation.</li>
+                <li>You will get the unknown value.</li>
+            </ul>
+
+            <p><strong>Complementary Angles Examples</strong></p>
+            <p><strong>Examples 1:</strong></p>
+            <p><strong> Question:</strong> Find the value of other angle if the complementary angle is 34°?</p>
+            <strong>Solution:</strong>
+            <p>Given, complementary angle is 34°</p>
+            <p>And we know the formula of complementary angle is </p>
+            <p>Complementary angle = 90° - angle</p>
+            <p>=> 90° - 34°</p>
+            <p>=> 56°</p>
+            <p>Therefore the other angle is 56°.</p>
+
+            <p><strong>Example 2:</strong></p>
+            <p><strong>Question:</strong> Find the value of other angle if the complementary angle is 66°?</p>
+            <strong>Solution:</strong>
+            <p> Given, complementary angle is 66°</p>
+            <p>And we know that, When we add two angles, the sum should be equal to 90°.</p>
+            <p>i.e., 66° + x = 90°</p>
+            <p>Now, simplify the equation.</p>
+            <p>66° + x = 90°</p>
+            <p>X = 90° - 66°</p>
+            <p>=> 24°.</p>
+            <p>Therefore, the other angle x is 24°.</p>
+            <p>If you would you finish your maths assignments very quickly, use our calculator tools that are available in <a href="http://lcmgcf.com/">LCMGCF.Com</a></p>
+
+            
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header">
+            <h3>FAQs on How to Solve Complementary Angles</h3>
+        </div>
+        <div class="card-body">
+            <strong>1. How to use our complementary angle calculator?</strong>
+            <p>For using our calculator tool, give any angle as input and then hit the calculate button then you will see the answer in a blink of an eye.</p><hr>
+            <strong>2. What is the formula for complementary angle?</strong>
+            <p>The formula to use complementary angle is Complementary angle = 90° - angle.</p><hr>
+            <strong>3. What is x if one of the complementary angle is 64°?</strong>
+            <p>Complementary angle = 90° - angle.</p>
+           <p>=> 90° - 64° => 26° .</p>
+        </div>
+
+    </div>
+    
+
+
+
+<script>
+    
+        var validNumber = new RegExp(/^\d*\.?-?\d*$/);
+        var fist_input = document.getElementById("inlineFormInputGroup").value;
+        function validateNumber(elem) {
+            console.log(elem)
+            if (validNumber.test(elem.value)) {
+                fist_input = elem.value;
+            } else {
+                elem.value = fist_input;
+            }
+        }
+
+    </script>
+    
+   
+    
+    
+    
+    {% endblock %}

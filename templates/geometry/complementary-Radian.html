@@ -29,16 +29,16 @@
     integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     
 <!-- Meta Title, Description and Canonical URL Starts --->
-<title>Supplementary Angle of {{Angle}} Degree | How to do Supplementary Angle of {{Angle}}°?</title>
-<meta name="description" content="Determine the Supplementary Angle of {{Angle}} Degree i.e. {{value}}° using the Supplement Angle Calculator easily on entering the inputs." />
+<title>Finding Complementary Angle of {{Angle}} Radians with Steps</title>
+<meta name="description" content="Check out the step-by-step process of evaluating the Complementary Angle of {{Angle}} Radians i.e. {{value}} Radians with a detailed explanation." />
 <link rel="canonical" href="{{request.build_absolute_uri}}">
 <!-- Meta Title, Description and Canonical URL ENDS --->
 
 <!-- OPEN GRAPH CONFIGURATIONS STARTS -->
 <!--  FACEBOOK CONFIGURATION STARTS  -->
 <meta content="https://www.facebook.com/OnlineCalculator-Guru-131572098650589/" property="og:url" />
-<meta property="og:title" content="Supplementary Angle of {{Angle}} Degree | How to do Supplementary Angle of {{Angle}}°?" />
-<meta property="og:description" content="Determine the Supplementary Angle of {{Angle}} Degree i.e. {{value}}° using the Supplement Angle Calculator easily on entering the inputs." />
+<meta property="og:title" content="Finding Complementary Angle of {{Angle}} Radians with Steps" />
+<meta property="og:description" content="Check out the step-by-step process of evaluating the Complementary Angle of {{Angle}} Radians i.e. {{value}} Radians with a detailed explanation." />
 <meta content="" property="og:site_name" />
 
     <meta property="og:image:type" content="image/png" />
@@ -48,17 +48,17 @@
 <!-- TWITTER CARD CONFIGURATION STARTS  -->
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:site" content="https://twitter.com/onlinecalculator" />
-<meta name="twitter:title" content="Supplementary Angle of {{Angle}} Degree | How to do Supplementary Angle of {{Angle}}°?" />
-<meta name="twitter:description" content="Determine the Supplementary Angle of {{Angle}} Degree i.e. {{value}}° using the Supplement Angle Calculator easily on entering the inputs." />
+<meta name="twitter:title" content="Finding Complementary Angle of {{Angle}} Radians with Steps" />
+<meta name="twitter:description" content="Check out the step-by-step process of evaluating the Complementary Angle of {{Angle}} Radians i.e. {{value}} Radians with a detailed explanation." />
 
 <meta property="twitter:image:height" content="435" />
 <meta property="twitter:image:width" content="354" />
 <!-- TWITTER CARD CONFIGURATION ENDS  -->
 <!--  LINKEDIN CONFIGURATION STARTS-->
 
-<meta property='og:title' content="Supplementary Angle of {{Angle}} Degree | How to do Supplementary Angle of {{Angle}}°?" />
+<meta property='og:title' content="Finding Complementary Angle of {{Angle}} Radians with Steps" />
 
-<meta property='og:description' content="Determine the Supplementary Angle of {{Angle}} Degree i.e. {{value}}° using the Supplement Angle Calculator easily on entering the inputs." />
+<meta property='og:description' content="Check out the step-by-step process of evaluating the Complementary Angle of {{Angle}} Radians i.e. {{value}} Radians with a detailed explanation." />
 <meta property='og:url' content="https://www.linkedin.com/in/onlinecalculator/" />
 <!-- end of linkedin CONFIGURATIONS ENDS -->
 <!-- OPEN GRAPH CONFIGURATION ENDS -->
@@ -96,7 +96,7 @@
 <div class="container" style="height: auto !important;">
     <div class="card c1">
         <div class="card-header">
-            <h1 class="center">Supplementary Angle of {{Angle}} Degree</h1>
+            <h1 class="center">Complementary Angle of {{Angle}} Radian</h1>
         </div>
         <div class="card-body">
             <ul class="messages">
@@ -106,20 +106,20 @@
                 {% endif %}   
 
             </ul>
-            <p>Find a Supplementary Angle of {{Angle}} Degree i.e. {{value}}° by making the most out of <a href="{% url 'supplementary' %}">Supplement Angle Calculator</a> and get a detailed solution in a matter of seconds.</p>
+            <p>Utilize our simple and easy-to-use <a href="{% url 'complementary' %}">Complementary Angle Calculator.</a> and find out the Complementary Angle of {{Angle}} Radians i.e. {{value}} in no time.</p>
             <div class="center">
             <div class="btn-group btn-group-sm">
              <a href="{% url 'degtorad' %}"><button type="button" class="btn btn-warning rounded-bottom  text-break" style="border-radius: 15px;">Deg to Rad</button></a>
              <a href="{% url 'radtodeg' %}"><button type="button" class="btn btn-warning rounded-bottom  text-break" style="border-radius: 15px;">Rad to Deg</button></a>
-             <a href="{% url 'supplementary' %}"><button type="button" class="btn btn-success  rounded-bottom  text-break" style="border-radius: 15px;">Supplementary</button></a>
-             <a href="{% url 'complementary' %}"><button type="button" class="btn btn-warning  rounded-bottom  text-break" style="border-radius: 15px;">Complementary</button></a>
+             <a href="{% url 'supplementary' %}"><button type="button" class="btn btn-warning  rounded-bottom  text-break" style="border-radius: 15px;">Supplementary</button></a>
+             <a href="{% url 'complementary' %}"><button type="button" class="btn btn-success  rounded-bottom  text-break" style="border-radius: 15px;">Complementary</button></a>
              <a href="{% url 'reflex' %}"><button type="button" class="btn btn-warning  rounded-bottom  text-break" style="border-radius: 15px;">Reflex</button></a> 
             </div></div>
             
             
         
         <div class="container card" id="inputform">
-            <form action="{% url 'supplementary' %}" method="POST" id="my_form" >
+            <form action="{% url 'complementary' %}" method="POST" id="my_form" >
                 {% csrf_token %}
                 <div class="col-auto">
                     <br>
@@ -127,9 +127,15 @@
                         <div class="input-group-prepend">
                             <div class="input-group-text"><strong>Angle</strong></div>
                         </div>
-                        <input type="number" min="0" max="180" step="any" oninput="validateNumber(this);" id="inlineFormInputGroup" required="" class="form-control" name="Angle" id="Angle" {% if Angle or Angle == 0 %} value="{{Angle}}" {% else %} value="90" {% endif %}>
+                        <input type="number" min="0" max="90" step="any" oninput="validateNumber(this);" id="inlineFormInputGroup" required="" class="form-control" name="Angle" id="Angle" {% if Angle or Angle == 0 %} value="{{Angle}}" {% else %} value="90" {% endif %}>
 
                         <select class="select form-control" id="inlineFormInputGroup" name="AG_TY" id="GT_op">
+
+                            {% if AG_TY == 'radian' %}
+                            <option value="radian" selected="selected">radian</option>
+                            {% else %}
+                            <option value="radian">radian</option>
+                            {% endif %}
 
                             {% if AG_TY == 'degree' %}
                             <option value="degree" selected="selected">degree</option>
@@ -137,11 +143,7 @@
                             <option value="degree">degree</option>
                             {% endif %}
 
-                            {% if AG_TY == 'radian' %}
-                            <option value="radian" selected="selected">radian</option>
-                            {% else %}
-                            <option value="radian">radian</option>
-                            {% endif %}
+                            
     
                         </select>
                         
@@ -181,42 +183,42 @@
 
     <div class="card">
         <div class="card-header">
-            <h2 class="center">How to Calculate a Supplementary Angle for {{Angle}}°?</h2>
+            <h2 class="center">How to find Complementary Angle for {{Angle}} Radians?</h2>
         </div>
         
         <div class="card-body"> 
-            <p>Go through the step-by-step process mentioned below to obtain the Supplementary Angle of {{Angle}} Degree. They are as follows</p>
+            <p>The step-by-step process to find out the Complementary Angle of {{Angle}} Radians is mentioned below</p>
             <ul>
-                <li>Firstly, obtain the given angle in degree measure. It is {{Angle}}° in this case.</li>
-                <li>Now, to find the supplementary angle simply subtract the given angle measure from  180° i.e. 180° - {{Angle}}° = {{value}}°</li>
-                <li>Therefore, the resultant value of {{value}}° is the supplementary angle of {{Angle}}°.</li>
+                <li>Firstly, find out the given angle measure for which we need to find out the Complementary Angle i.e. {{Angle}} Radians</li>
+                <li>Now subtract the given radian measure from π/2 i.e. π/2 - {{Angle}}</li>
+                <li>Therefore, the complementary angle of {{Angle}} Radians is {{value}} Radians</li>
             </ul>
         </div>
     </div>
 
     <div class="card">
         <div class="card-header">
-            <h4 class="center">Supplementary Angle in Degree Calculator Example</h4>
+            <h4 class="center">Complementary Angle in Degree Calculator Example</h4>
         </div>
         
        <div class="card-body"> 
             <div class="row">
                 <div class="col-sm-5">
                   <ul>
-                    <li><a href="/geometry/supplementary-angle-of-{{exp.0}}-in-degree/">Supplementary angle of {{exp.0}}°</a></li>
-                    <li><a href="/geometry/supplementary-angle-of-{{exp.1}}-in-degree/">Supplementary angle of {{exp.1}}°</a></li>
-                    <li><a href="/geometry/supplementary-angle-of-{{exp.2}}-in-degree/">Supplementary angle of {{exp.2}}°</a></li>
-                    <li><a href="/geometry/supplementary-angle-of-{{exp.3}}-in-degree/">Supplementary angle of {{exp.3}}°</a></li>
-                    <li><a href="/geometry/supplementary-angle-of-{{exp.4}}-in-degree/">Supplementary angle of {{exp.4}}°</a></li>
+                    <li><a href="/geometry/complementary-angle-of-{{exp.0}}-in-radian/">Complementary angle of {{exp.0}}<sup>rad</sup></a></li>
+                    <li><a href="/geometry/complementary-angle-of-{{exp.1}}-in-radian/">Complementary angle of {{exp.1}}<sup>rad</sup></a></li>
+                    <li><a href="/geometry/complementary-angle-of-{{exp.2}}-in-radian/">Complementary angle of {{exp.2}}<sup>rad</sup></a></li>
+                    <li><a href="/geometry/complementary-angle-of-{{exp.3}}-in-radian/">Complementary angle of {{exp.3}}<sup>rad</sup></a></li>
+                    <li><a href="/geometry/complementary-angle-of-{{exp.4}}-in-radian/">Complementary angle of {{exp.4}}<sup>rad</sup></a></li>
                   </ul>
                 </div>
                 <div class="col-sm-5">
                     <ul>
-                        <li><a href="/geometry/supplementary-angle-of-{{exp.5}}-in-degree/">Supplementary angle of {{exp.5}}°</a></li>
-                        <li><a href="/geometry/supplementary-angle-of-{{exp.6}}-in-degree/">Supplementary angle of {{exp.6}}°</a></li>
-                        <li><a href="/geometry/supplementary-angle-of-{{exp.7}}-in-degree/">Supplementary angle of {{exp.7}}°</a></li>
-                        <li><a href="/geometry/supplementary-angle-of-{{exp.8}}-in-degree/">Supplementary angle of {{exp.8}}°</a></li>
-                        <li><a href="/geometry/supplementary-angle-of-{{exp.9}}-in-degree/">Supplementary angle of {{exp.9}}°</a></li>
+                        <li><a href="/geometry/complementary-angle-of-{{exp.5}}-in-radian/">Complementary angle of {{exp.5}}<sup>rad</sup></a></li>
+                        <li><a href="/geometry/complementary-angle-of-{{exp.6}}-in-radian/">Complementary angle of {{exp.6}}<sup>rad</sup></a></li>
+                        <li><a href="/geometry/complementary-angle-of-{{exp.7}}-in-radian/">Complementary angle of {{exp.7}}<sup>rad</sup></a></li>
+                        <li><a href="/geometry/complementary-angle-of-{{exp.8}}-in-radian/">Complementary angle of {{exp.8}}<sup>rad</sup></a></li>
+                        <li><a href="/geometry/complementary-angle-of-{{exp.9}}-in-radian/">Complementary angle of {{exp.9}}<sup>rad</sup></a></li>
                       </ul>
                 </div>
             
@@ -226,40 +228,42 @@
 
     <div class="card">
         <div class="card-header">
-            <h3 class="center">FAQs on What is the Supplementary Angle of {{Angle}}°?</h3>
+            <h3 class="center">FAQs on Finding the Complement Angle of {{Angle}} Radians</h3>
         </div>
         
     <div class="card-body"> 
-            <strong>1. What is the supplementary angle of {{Angle}} degrees?</strong>
-            <p>The supplementary angle of {{Angle}} degrees is <span id="result">{{value}}</span>°.</p><hr>
-            <strong>2. How do you find the supplementary angle of {{Angle}}°?</strong>
-            <p>You can find the supplementary angle of {{Angle}}° by simply subtracting the given angle measure from 180°.</p><hr>
-            <strong>3. How to use the Supplement Angle Calculator to find out the Supplementary Angle of {{Angle}} Degrees?</strong>
-            <p>All you have to do is simply enter the supplementary angle of {{Angle}}° in the input field of the tool and hit the calculate button to obtain the resultant supplementary angle.</p>
+            <strong>1. What is the Complementary Angle of {{Angle}} Radians?</strong>
+            <p>The Complementary Angle of {{Angle}} Radians is <span id="result">{{value}}</span> Radians.</p><hr>
+            <strong>2. What do complementary angles add up to?</strong>
+            <p>Complementary Angles add up to 90° or π/2 Radians.</p><hr>
+            <strong>3. How do you Solve the Complementary Angle of {{Angle}} Radians?</strong>
+            <p>The Complementary Angle of {{Angle}} Radians can be found by subtracting from π/2 Radians.</p>
         </div>
     </div>
 
 
     <script>
         // storing input value
-        var ang=document.getElementsByTagName("input")[1].value;
-        ang=ang.toString();
-        
+        var ang = document.getElementsByTagName("input")[1].value;
+        ang = ang.toString();
+    
+            
         // storing type
-        var typee="degree"; 
+        var typee = "radian"
         
         // storing result
-        var suplement=document.getElementById("result").innerHTML;
-        suplement=suplement.toString();
+        var complement = document.getElementById("result").innerHTML
+        complement = complement.toString();
     
-        
-        
-        if (typee == "degree"){
-            var angUnit = "degree";
-        }  
-        else{
-            var angUnit = "rad"; 
-        }
+           
+    
+            if (typee == "degree") {//result after calculation "supplementary"
+                var angUnit = "degree";
+            }  // if degree 
+            else {
+                var angUnit = "rad";     // if radian 
+            }     // if radian 
+    
         function degToRadians(deg) {
             var pi = Math.PI;
             var rad = deg * pi / 180;
@@ -268,18 +272,18 @@
     
         var canvas = document.getElementById('AngImage');
         var ctx = canvas.getContext('2d');
-        var symbol, angleTxt, suplementTxt;
+        var symbol, angleTxt, complementTxt;
     
         if (angUnit == "degree") {
             symbol = "°";
             angleTxt = parseFloat(ang).toPrecision(5) * 1;
-            suplementTxt = parseFloat(suplement).toPrecision(5) * 1;
+            complementTxt = parseFloat(complement).toPrecision(5) * 1;
             ang = degToRadians(parseFloat(ang));
     
         } else {
             symbol = " rad";
-            suplementTxt = suplement;
-        
+            complementTxt = complement;
+            console.log(complementTxt)
             angleTxt = ang;
         }
     
@@ -290,23 +294,27 @@
             var hipotenusa = Math.sqrt(canvasWidth * canvasWidth + canvasHeight * canvasHeight);
             var arcRadius = 20;
             var x0, y0, x1, y1;
-            var x0 = canvasWidth / 2;
+            var x0 = 0;
             var y0 = canvasHeight;
             var ab = Math.sin(ang) * hipotenusa;
-            var y1 = canvasHeight - ab / 2;
-            var catAdjacente = Math.cos(ang) * hipotenusa;
-            var x1 = x0 + catAdjacente / 2;
+            var y1 = canvasHeight - ab;
+            var catAdjacent = Math.cos(ang) * hipotenusa;
+            var x1 = catAdjacent;
     
             ctx.lineWidth = 3;
             // x
             ctx.beginPath();
             ctx.strokeStyle = "blue";
-            ctx.moveTo(0, y0);
+            ctx.moveTo(x0, y0);
             ctx.lineTo(canvasWidth, canvasHeight);
             ctx.stroke();
     
+            //  y
+            ctx.moveTo(x0, y0);
+            ctx.lineTo(0, 0);
+            ctx.stroke();
     
-            // angle
+            // angle line
             ctx.lineWidth = 2;
             ctx.setLineDash([5, 2]);
             ctx.beginPath();
@@ -315,17 +323,17 @@
             ctx.lineTo(x1, y1);
             ctx.stroke();
             ctx.setLineDash([]);
-            
+            // ctx.arc(x, y, radius, startAngle, endAngle, anticlockwise);
     
             // arc angle
             ctx.beginPath();
             ctx.strokeStyle = "black";
-            ctx.arc(canvasWidth / 2, y0, arcRadius, 0, -ang, true);
+            ctx.arc(x0, y0, hipotenusa / 9, 0, -ang, true);
             ctx.stroke();
     
             ctx.beginPath();
             ctx.strokeStyle = "black";
-            ctx.arc(canvasWidth / 2, y0, arcRadius, -ang, Math.PI / 2, true);
+            ctx.arc(x0, y0, hipotenusa / 9, -ang, Math.PI / 2, true);
             ctx.stroke();
             ctx.lineWidth = 1;
     
@@ -333,12 +341,12 @@
             ctx.font = "13px Arial";
             ctx.textAlign = "left";
             ctx.fillStyle = "brown";
-            ctx.fillText(angleTxt + symbol, canvasWidth - 50, canvasHeight - ab / 7 - 5);
+            ctx.fillText(angleTxt + symbol, catAdjacent / 3 + 5, canvasHeight - ab / 7 + 5);
             ctx.stroke();
     
             // output angle
-            ctx.fillStyle = "brown";
-            ctx.fillText(suplementTxt + symbol, 5, canvasHeight - ab / 7 - 5);
+            ctx.fillStyle = "#brown";
+            ctx.fillText(complementTxt + symbol, catAdjacent / 10 + 5, canvasHeight + 5 - ab / 2);
             ctx.stroke();
     
         }
@@ -346,6 +354,7 @@
     
     
     </script>
+    
     
 
 <script>
